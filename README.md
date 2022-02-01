@@ -9,8 +9,8 @@ We suggest storing it in your home folder.
 
 ```
 cd ~/
-git clone https://github.com/DavidWhicker/####.git
-cd ####
+git clone https://github.com/DavidWhicker/harmony_node_stats.git
+cd harmony_node_stats
 ```
 To update use `git pull`
 
@@ -57,9 +57,9 @@ Run the following with root privileges. If you do not have access with root then
 Please note: add correct info for < USER > & < PATH TO SCRIPT >
 
 ```
-cat<<-EOF > /etc/systemd/system/####.service
+cat<<-EOF > /etc/systemd/system/harmony_node_stats.service
 [Unit]
-Description=#### daemon
+Description=harmony_node_stats daemon
 After=network-online.target
 
 [Service]
@@ -82,17 +82,17 @@ Followed by:
 
 ```
 sudo systemctl daemon-reload
-sudo chmod 755 /etc/systemd/system/####.service
+sudo chmod 755 /etc/systemd/system/harmony_node_stats.service
 sudo systemctl enable ###.service
-sudo service #### start
-sudo service #### status
+sudo service harmony_node_stats start
+sudo service harmony_node_stats status
 ```
 
 ### 5b) Alternative Setup - Tmux
 
-`tmux new-session -s ####`
+`tmux new-session -s harmony_node_stats`
 
-`cd ~/####/`
+`cd ~/harmony_node_stats/`
 
 `python3 main.py`
 
@@ -103,15 +103,15 @@ Check logs to make sure the script is running as expected.
 ### Misc
 Start Service
 ```
-sudo service #### start
+sudo service harmony_node_stats start
 ```
 
 Stop Service
 ```
-sudo service #### stop
+sudo service harmony_node_stats stop
 ```
 
 Status Check
 ```
-sudo service #### status
+sudo service harmony_node_stats status
 ```
