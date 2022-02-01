@@ -16,7 +16,7 @@ class Alerts(AlertsBase):
         
     def send_data( 
         self,
-        node_stats: str,
+        node_stats: dict,
         ):
         self.send_alert(
             "Node Stats",
