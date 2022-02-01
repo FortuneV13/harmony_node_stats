@@ -1,4 +1,4 @@
-# Double Signing Check
+# Node Stats
 
 # vStats Alerts
 This is an automated script that will periodically send your node to vStats to enable easy to view and compare stats.
