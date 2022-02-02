@@ -36,8 +36,6 @@ nano .env
 
 > HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
 
-> VALIDATOR_ADDRESS: Enter your validator address
-
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
 

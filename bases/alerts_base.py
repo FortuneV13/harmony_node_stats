@@ -18,7 +18,6 @@ class AlertsBase:
             "send_shard-main-remote": send_shard_main_remote,
             "send_shard-main-local": send_shard_main_local,
             "node-stats": node_stats,
-            "validator-address": envs.VALIDATOR_ADDRESS,
             "hostname":self.hostname
         }
         full, _, _ = self.connect_to_api("", self.VSTATS_API, "", j=j)
