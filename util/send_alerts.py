@@ -21,6 +21,7 @@ class Alerts(AlertsBase):
         send_shard_0_local: int,
         send_shard_main_remote: int,
         send_shard_main_local: int,
+        load: str,
         ):
         self.send_alert(
             "Node Stats",
@@ -30,6 +31,7 @@ class Alerts(AlertsBase):
             send_shard_0_local,
             send_shard_main_remote,
             send_shard_main_local,
+            load,
             "danger",
             log.info,
             f"Sending Alert",

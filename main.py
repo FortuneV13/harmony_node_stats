@@ -32,7 +32,9 @@ while True:
         send_shard_main_remote =  literal_eval(local_data_shard['result']['shard-chain-header']['number'])
         send_shard_main_local =  literal_eval(remote_data_shard['result']['shard-chain-header']['number'])
         
-        alerts.send_data(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local)
+        load = os.getloadavg()
+
+        alerts.send_data(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
         
     except Exception as e:
         alerts.generic_error(e)
