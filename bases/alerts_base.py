@@ -25,7 +25,7 @@ class AlertsBase:
         log.info(full)
 
     def send_alert(
-        self, subject: str, msg: str,node_stats: dict, send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, _type: str, load: str, log_level: log, log_msg: str
+        self, subject: str, msg: str,node_stats: dict, send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str, _type: str,  log_level: log, log_msg: str
     ) -> None:
         log_level(log_msg)
         subject = f"{subject}"
