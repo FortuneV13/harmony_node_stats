@@ -25,6 +25,7 @@ while True:
     try:
         # Get Node utility metadata
         node_stats = getNodeStats()
+        
         # Get Shard ID from node
         shard = node_stats['shard-id']
         
