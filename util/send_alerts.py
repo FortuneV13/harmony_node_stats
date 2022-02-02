@@ -17,11 +17,19 @@ class Alerts(AlertsBase):
     def send_data( 
         self,
         node_stats: dict,
+        send_shard_0_remote: int,
+        send_shard_0_local: int,
+        send_shard_main_remote: int,
+        send_shard_main_local: int,
         ):
         self.send_alert(
             "Node Stats",
             "Message",
             node_stats,
+            send_shard_0_remote,
+            send_shard_0_local,
+            send_shard_main_remote,
+            send_shard_main_local,
             "danger",
             log.info,
             f"Sending Alert",
