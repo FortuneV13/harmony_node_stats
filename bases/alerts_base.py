@@ -41,7 +41,10 @@ class AlertsBase:
 
     def generic_error(self) -> None:
         j = {
-            "api_token": self.envs.VSTATS_TOKEN
+            "api_token": self.envs.VSTATS_TOKEN,
+            "alert-type":'error',
+            "subject": 'test',
+            "message": 'test',
         }
         
         full, _, _ = self.connect_to_api("", self.VSTATS_API, "", j=j)
