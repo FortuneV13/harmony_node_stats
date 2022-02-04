@@ -54,8 +54,8 @@ while True:
         alerts.send_data(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
         
     except Exception as e:
-        alerts.generic_error(e)
-        log.error(e)
+        #alerts.generic_error(e)
+        log.error(e) 
         log.error(f"Please fix me!")
 
     # Delay by x seconds
