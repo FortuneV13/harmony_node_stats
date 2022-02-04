@@ -81,7 +81,7 @@ Followed by:
 ```
 sudo systemctl daemon-reload
 sudo chmod 755 /etc/systemd/system/harmony_node_stats.service
-sudo systemctl enable ###.service
+sudo systemctl enable harmony_node_stats.service
 sudo service harmony_node_stats start
 sudo service harmony_node_stats status
 ```
