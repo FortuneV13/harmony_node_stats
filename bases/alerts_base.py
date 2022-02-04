@@ -39,7 +39,7 @@ class AlertsBase:
         self.send_to_vstats(subject, msg, node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local,load, _type)
 
 
-    def generic_error() -> None:
+    def generic_error(self) -> None:
         j = {
             "api_token": self.envs.VSTATS_TOKEN
         }
