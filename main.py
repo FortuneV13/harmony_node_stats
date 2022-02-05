@@ -54,9 +54,10 @@ while True:
         alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
         
     except Exception as e:
-        alerts.generic_error(e)
         log.error(e) 
         log.error(f"Please fix me!")
+        alerts.generic_error(e)
+        
 
     # Delay by x seconds
     #sleep(envs.RUN_EVERY_X_MINUTES * 60)
