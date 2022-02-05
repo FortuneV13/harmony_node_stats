@@ -7,7 +7,7 @@ class Alerts:
         self.connect_to_api = connect_to_api
         self.__dict__.update(kwargs)
 
-    def send_to_vstats(self,node_stats: dict,send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str) -> None:
+    def send_to_vstats(self,node_stats: dict,send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str,space:str) -> None:
         j = {
             "api_token": self.envs.VSTATS_TOKEN,
             "send_shard-0-remote": send_shard_0_remote,
@@ -16,6 +16,7 @@ class Alerts:
             "send_shard-main-local": send_shard_main_local,
             "node-stats": node_stats,
             "load": load,
+            "space":space,
             "hostname":self.hostname
         }
         full, _, _ = self.connect_to_api("", self.VSTATS_API, "", j=j)

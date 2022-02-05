@@ -7,7 +7,7 @@ from includes.config import *
 from util.connect import connect_to_api
 from util.tools import *
 from bases.alerts import Alerts
-from subprocess import Popen, PIPE, run
+from subprocess import Popen, PIPE, run,check_output
 from ast import literal_eval
 
 # Init Alerts Class
@@ -21,7 +21,8 @@ while True:
     send_shard_0_local = 0
     send_shard_main_remote = 0
     send_shard_main_local = 0
-    
+   
+
     try:
         # Get Node utility metadata
         node_stats = getNodeStats()
@@ -49,9 +50,11 @@ while True:
   
         # Get Server Load
         load = os.getloadavg()
-
+        # Space left
+        space = subprocess.check_output('df --output=avail -h "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
+  
         # Send to vStats
-        alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
+        alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space)
         
     except Exception as e:
         log.error(e) 
