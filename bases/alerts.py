@@ -1,7 +1,7 @@
 import logging as log
 from includes.config import *
 
-class AlertsBase:
+class Alerts:
     def __init__(self, VSTATS_API: str, connect_to_api: object, **kwargs) -> None:
         self.VSTATS_API = VSTATS_API
         self.connect_to_api = connect_to_api
