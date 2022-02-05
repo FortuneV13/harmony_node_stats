@@ -25,7 +25,7 @@ class Alerts:
     def generic_error(self,e) -> None:
         j = {
             "api_token": self.envs.VSTATS_TOKEN,
-            "alert-type":'error',
+            "error": 'true',
             "hostname":self.hostname
         }
         
