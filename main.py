@@ -24,7 +24,7 @@ while True:
     
     try:
         # Get Node utility metadata
-        node_stats = getNodekStats()
+        node_stats = getNodeStats()
         
         # Get Shard ID from node
         shard = node_stats['shard-id']
@@ -54,7 +54,7 @@ while True:
         alerts.send_data(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
         
     except Exception as e:
-        alerts.generic_error(e)
+        #alerts.generic_error(e)
         log.error(e) 
         log.error(f"Please fix me!")
 
