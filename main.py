@@ -6,7 +6,7 @@ from time import sleep
 from includes.config import *
 from util.connect import connect_to_api
 from util.tools import *
-from util.send_alerts import Alerts
+from bases.alerts import Alerts
 from subprocess import Popen, PIPE, run
 from ast import literal_eval
 
@@ -51,10 +51,10 @@ while True:
         load = os.getloadavg()
 
         # Send to vStats
-        alerts.send_data(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
+        alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load)
         
     except Exception as e:
-        #alerts.generic_error(e)
+        alerts.generic_error(e)
         log.error(e) 
         log.error(f"Please fix me!")
 
