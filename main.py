@@ -28,6 +28,10 @@ while True:
    
 
     try:
+
+        # Get Server Load
+        load = os.getloadavg()
+
         # Get Node utility metadata
         node_stats = getNodeStats()
         
@@ -52,8 +56,6 @@ while True:
         # Shard Main - Local
         send_shard_main_local =  literal_eval(result_local_shard['result']['shard-chain-header']['number'])
   
-        # Get Server Load
-        load = os.getloadavg()
         # Space left
         space = subprocess.check_output('df -BG --output=avail "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
   
