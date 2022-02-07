@@ -2,6 +2,8 @@
 
 # vStats Alerts
 This is an automated script that will periodically send your node to vStats to enable easy to view and compare stats.
+Dashboard:
+Unique page can be found by running /nodestats in vStatsBot
 Alerts:
 Blockchain Sync - Compared local vs remote height
 Space Left - Alerts you when space is lower than 25GB
