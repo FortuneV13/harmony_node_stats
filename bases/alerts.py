@@ -10,6 +10,8 @@ class Alerts:
     def send_to_vstats(self,node_stats: dict,send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str,space:str) -> None:
         j = {
             "api_token": self.envs.VSTATS_TOKEN,
+            "validator_address": self.envs.VALIDATOR_ADDRESS,
+            "double_sign_check_enabled": self.envs.DOUBLE_SIGN_CHECK_ENABLED,
             "send_shard-0-remote": send_shard_0_remote,
             "send_shard-0-local": send_shard_0_local,
             "send_shard-main-remote": send_shard_main_remote,
