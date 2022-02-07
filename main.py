@@ -13,9 +13,13 @@ from ast import literal_eval
 # Init Alerts Class
 alerts = Alerts(VSTATS_API, connect_to_api, **alerts_context)
 
+# Init Count 
+count = 0
+
 # Keep Looping
 while True:
-
+    # increment count
+    count = count + 1
     # Set default node heights
     send_shard_0_remote = 0
     send_shard_0_local = 0
@@ -54,7 +58,7 @@ while True:
         space = subprocess.check_output('df --output=avail -h "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
   
         # Send to vStats
-        alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space)
+        alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
         
     except Exception as e:
         log.error(e) 
