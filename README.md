@@ -32,6 +32,7 @@ Rename .env.example to .env and edit the following variables:
 cp .env.example .env
 nano .env
 ```
+```
 > VSTATS_TOKEN="" Add your token from vstats 
 
 > DOUBLE_SIGN_CHECK_ENABLED=true|false (Default: false - Will alert you if a blskey match is found on 1 or more servers )
@@ -41,7 +42,7 @@ nano .env
 > SPACE_CHECK_ENABLED=true|false (Default: false  Will alert when space is less than 25GB )
 
 > HARMONY_FOLDER="" (Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony )
-
+```
 ### 4) Test Script 
 Test the .env variables and script is working as expected. 
 
