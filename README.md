@@ -7,7 +7,7 @@ Dashboard:
 - Unique page can be found by running /nodestats in vStatsBot
 
 Alerts:
-- Blockchain Sync - Compared local vs remote height
+- Blockchain Sync - Compares local vs remote height
 - Space Left - Alerts you when space is lower than 25GB
 - Double Signing Check - Alerts you if a bls key is found on one or more signing servers
 
