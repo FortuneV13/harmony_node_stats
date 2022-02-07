@@ -55,7 +55,7 @@ while True:
         # Get Server Load
         load = os.getloadavg()
         # Space left
-        space = subprocess.check_output('df -BT --output=avail -h "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
+        space = subprocess.check_output('df -BT --output=avail "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
   
         # Send to vStats
         alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
