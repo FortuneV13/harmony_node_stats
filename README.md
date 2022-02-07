@@ -47,10 +47,10 @@ VALIDATOR_ADDRESS=""
 DOUBLE_SIGN_CHECK_ENABLED=true|false 
 
 # Alert when local vs remote gap is larger than 100 | Default: false  
-SYNC_CHECK_ENABLED=false 
+SYNC_CHECK_ENABLED=true|false 
 
 # Alert when space is less than 25GB | Default: false  
-SPACE_CHECK_ENABLED=false 
+SPACE_CHECK_ENABLED=true|false
 
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
 HARMONY_FOLDER=""
