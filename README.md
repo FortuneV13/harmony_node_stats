@@ -37,8 +37,11 @@ cp .env.example .env
 nano .env
 ```
 ```
-#Add your token from vstats 
+#Add your token from vstats. Run /token on vStatsBot
 VSTATS_TOKEN="" 
+
+# Validator Address
+VALIDATOR_ADDRESS=""
 
 # Alert when blskey match is found on 1 or more servers | Default: false  
 DOUBLE_SIGN_CHECK_ENABLED=true|false 
