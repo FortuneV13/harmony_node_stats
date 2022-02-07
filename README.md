@@ -34,6 +34,12 @@ nano .env
 ```
 > VSTATS_TOKEN: Add your token from vstats 
 
+> DOUBLE_SIGN_CHECK_ENABLED: true|false
+
+> SYNC_CHECK_ENABLED: true|false
+
+> SPACE_CHECK_ENABLED: true|false
+
 > HARMONY_FOLDER: Add path containing .hmy ( run pwd in .hmy location to get full path ) e.g /home/serviceharmony/harmony
 
 ### 4) Test Script 
