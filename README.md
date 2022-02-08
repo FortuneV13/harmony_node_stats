@@ -1,15 +1,17 @@
 # Node Stats
 
 # vStats Alerts
-This is an automated script that will periodically send your node to vStats to enable easy to view and compare stats.
+This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
 
 Dashboard:
+- Shows your node stats on a single page.
 - Unique page can be found by running /nodestats in vStatsBot
 
 Alerts:
 - Blockchain Sync - Compares local vs remote height
 - Space Left - Alerts you when space is lower than 25GB
 - Double Signing Check - Alerts you if a bls key is found on one or more signing servers
+- If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.
 
 
 ### 1) Download the script
