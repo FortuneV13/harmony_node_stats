@@ -23,18 +23,18 @@ Difference: -4719
 ```
 🚨Double Signing🚨
 Identical Keys exist on multiple signing Shard 3 servers: 
-cliffe3-fsn
-cliffe3-hel
+shard3-fsn
+shard3-hel
 Matched Keys:
 0701becb090da6d7a74175f645c3827756433278064b89a3299fceaf95c5faa2faeab642bd5c46e30128f1240742ce8f
 Date & Time: 2022-02-07 13:03:34
 ```
 - If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.
 ```
-🚨!!! cliffe3-fsn = Syncing !!!🚨
+🚨!!! shard3-fsn = Syncing !!!🚨
 Please check node.
 ```
-- Daily Node Summary Updates
+- <b>Daily Node Summary Updates</b>
 ```
 🔶Shard3 Fsn🔶
 Mode: Normal
