@@ -3,23 +3,23 @@
 # vStats Alerts
 This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
 
-Dashboard:
+<b>Dashboard:</b>
 - Shows your node stats on a single page.
 - Unique page can be found by running /nodestats in vStatsBot
 
-Alerts:
-- Blockchain Sync - Compares local vs remote height
+<b>Alerts:</b>
+- <b>Blockchain Sync - Compares local vs remote height</b>
 ```
 🔻Shard2-Hel --- Shard 0 Behind🔻
 Remote: 22716160
 Local: 22711441
 Difference: -4719
 ```
-- Space Left - Alerts you when space is lower than 25GB
+- <b>Space Left - Alerts you when space is lower than 25GB</b>
 ```
 🔻Shard2-fsn --- Space Low 20GB Left🔻
 ```
-- Double Signing Check - Alerts you if a bls key is found on one or more signing servers
+- <b>Double Signing Check - Alerts you if a bls key is found on one or more signing servers</b>
 ```
 🚨Double Signing🚨
 Identical Keys exist on multiple signing Shard 3 servers: 
@@ -29,7 +29,7 @@ Matched Keys:
 0701becb090da6d7a74175f645c3827756433278064b89a3299fceaf95c5faa2faeab642bd5c46e30128f1240742ce8f
 Date & Time: 2022-02-07 13:03:34
 ```
-- If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.
+- <b>If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.</b>
 ```
 🚨!!! shard3-fsn = Syncing !!!🚨
 Please check node.
