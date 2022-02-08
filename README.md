@@ -8,6 +8,7 @@ This is an automated script that will periodically ( every 30 mins ) send your n
 - Unique page can be found by running /nodestats in vStatsBot
 
 <b>Alerts:</b>
+- All of the below can be toggled on or off via the .env file.
 - <b>Blockchain Sync - Compares local vs remote height</b>
 ```
 🔻Shard2-Hel --- Shard 0 Behind🔻
