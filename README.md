@@ -94,10 +94,10 @@ VALIDATOR_ADDRESS=""
 # Alert when blskey match is found on 1 or more servers | Default: false  
 DOUBLE_SIGN_CHECK_ENABLED=true|false 
 
-# Alert when local vs remote gap is larger than 100 | Default: false  
+# Alert when local vs remote gap is larger than 100 | Default: true  
 SYNC_CHECK_ENABLED=true|false 
 
-# Alert when space is less than 25GB | Default: false  
+# Alert when space is less than 25GB | Default: true  
 SPACE_CHECK_ENABLED=true|false
 
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
