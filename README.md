@@ -17,7 +17,7 @@ Difference: -4719
 ```
 - Space Left - Alerts you when space is lower than 25GB
 ```
-🔻cliffe3-fsn --- Space Low 20GB Left🔻
+🔻Shard2-fsn --- Space Low 20GB Left🔻
 ```
 - Double Signing Check - Alerts you if a bls key is found on one or more signing servers
 ```
