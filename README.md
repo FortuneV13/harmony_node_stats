@@ -6,6 +6,7 @@ This is an automated script that will periodically ( every 30 mins ) send your n
 <b>Dashboard:</b>
 - Shows your node stats on a single page.
 - Unique page can be found by running /nodestats in vStatsBot
+- Example dashboard https://vstats.test/node-stats/example
 
 <b>Alerts:</b>
 - All of the below can be toggled on or off via the .env file.
