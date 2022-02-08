@@ -9,9 +9,41 @@ Dashboard:
 
 Alerts:
 - Blockchain Sync - Compares local vs remote height
+```
+🔻Shard2-Hel --- Shard 0 Behind🔻
+Remote: 22716160
+Local: 22711441
+Difference: -4719
+```
 - Space Left - Alerts you when space is lower than 25GB
+```
+🔻cliffe3-fsn --- Space Low 20GB Left🔻
+```
 - Double Signing Check - Alerts you if a bls key is found on one or more signing servers
+```
+🚨Double Signing🚨
+Identical Keys exist on multiple signing Shard 3 servers: 
+cliffe3-fsn
+cliffe3-hel
+Matched Keys:
+0701becb090da6d7a74175f645c3827756433278064b89a3299fceaf95c5faa2faeab642bd5c46e30128f1240742ce8f
+Date & Time: 2022-02-07 13:03:34
+```
 - If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.
+```
+🚨!!! cliffe3-fsn = Syncing !!!🚨
+Please check node.
+```
+- Daily Node Summary Updates
+```
+🔶Shard3 Fsn🔶
+Mode: Normal
+Space: 846G
+Shard 0: Synced
+Shard 3: Synced
+Load: 2.63
+Updated: 28 mins ago 
+```
 
 
 ### 1) Download the script
