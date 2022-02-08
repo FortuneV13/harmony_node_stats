@@ -47,6 +47,12 @@ Load: 2.63
 Updated: 28 mins ago 
 ```
 
+## Data Collected
+- Harmony Utility Metadata ( blskey list, version number )
+- Blockchain Heigh ( Remote + Local )
+- Hostname
+- Server Load
+- Server Space in current filesystem
 
 ### 1) Download the script
 We suggest storing it in your home folder.
