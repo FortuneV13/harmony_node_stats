@@ -18,7 +18,7 @@ Remote: 22716160
 Local: 22711441
 Difference: -4719
 ```
-- <b>Space Left - Alerts you when space is lower than 25GB</b>
+- <b>Space Left - Alerts you when space is lower than 30GB</b>
 ```
 🔻Shard2-fsn --- Space Low 20GB Left🔻
 ```
@@ -98,7 +98,7 @@ DOUBLE_SIGN_CHECK_ENABLED=true|false
 # Alert when local vs remote gap is larger than 100 | Default: true  
 SYNC_CHECK_ENABLED=true|false 
 
-# Alert when space is less than 25GB | Default: true  
+# Alert when space is less than 30GB | Default: true  
 SPACE_CHECK_ENABLED=true|false
 
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
