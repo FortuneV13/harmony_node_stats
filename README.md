@@ -5,9 +5,12 @@
 - Each alert can be turned on and off on a node by node basis ( via .env ) or globally via /notifications on vStatsBot.
 
 <b>Dashboard:</b>
-- Shows your node stats on a single page.
-- Unique page can be found by running /nodestats in vStatsBot
-- Example dashboard https://vstats.test/node-stats/example
+
+Shows your node stats on a single page.
+
+Unique page can be found by running /nodestats in vStatsBot
+
+Example dashboard https://vstats.test/node-stats/example
 
 <b>Alerts:</b>
 
