@@ -1,4 +1,4 @@
-# Node Stats
+# Harmony Node Stats
 
 ## vStats Alerts
 - This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
