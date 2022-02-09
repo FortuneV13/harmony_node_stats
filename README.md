@@ -10,6 +10,7 @@
 - Example dashboard https://vstats.test/node-stats/example
 
 <b>Alerts:</b>
+
 Node summary request. Type /nodestats for a server summary. These are also scheduled daily. 
 
 All of the below can be toggled on or off via the .env file.
