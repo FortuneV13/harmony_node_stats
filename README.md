@@ -1,7 +1,8 @@
 # Node Stats
 
 ## vStats Alerts
-This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
+- This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
+- Each alert can be turned on and off on a node by node basis ( via .env ) or globally via /notifications on vStatsBot.
 
 <b>Dashboard:</b>
 - Shows your node stats on a single page.
@@ -54,6 +55,9 @@ Updated: 28 mins ago
 - Hostname
 - Server Load
 - Server Space in current filesystem
+
+## Pre Installation Notes
+- Script must be installed on each individual node
 
 ## Installation 
 
