@@ -1,6 +1,6 @@
 # Harmony Node Stats
 
-## vStats Alerts
+## vStatsBot Alerts
 - This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
 - Each alert can be turned on and off on a node by node basis ( via .env ) or globally via /notifications on vStatsBot.
 
