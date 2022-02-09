@@ -12,6 +12,7 @@
 <b>Alerts:</b>
 - Node summary request. Type /nodestats for a server summary. These are also scheduled daily. 
 - All of the below can be toggled on or off via the .env file.
+
 - <b>Blockchain Sync - Compares local vs remote height</b>
 ```
 🔻Shard2-Hel --- Shard 0 Behind🔻
