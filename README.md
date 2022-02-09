@@ -119,12 +119,13 @@ python3 main.py
 
 Alerts on screen AND vStatsBot should appear. Once successful, please cancel the script ( CTRL + C ) and move onto the next step.
 
-### 5) Setup Service
+## Automate the script via a service (5a) or tmux session (5b).
+### 5a) Setup Service
 Now setup script to run as a service in the background. 
 
 Run the following with root privileges. If you do not have access with root then you may setup a tmux session ( see: Alternative Setup - Tmux ).
 
-Please note: add correct info for < USER > & < PATH TO SCRIPT >
+Please note: add correct info for USER & PATH TO SCRIPT
 
 ```
 cat<<-EOF > /etc/systemd/system/harmony_node_stats.service
@@ -136,8 +137,8 @@ After=network-online.target
 Type=simple
 Restart=always
 RestartSec=1
-User=<USER>
-WorkingDirectory=<PATH TO SCRIPT>
+User=USER
+WorkingDirectory=PATH TO SCRIPT
 ExecStart=python3 main.py
 SyslogIdentifier=harmony_node_stats
 StartLimitInterval=0
@@ -179,6 +180,10 @@ sudo service harmony_node_stats start
 Stop Service
 ```
 sudo service harmony_node_stats stop
+```
+Restart Service
+```
+sudo service harmony_node_stats restart
 ```
 
 Status Check
