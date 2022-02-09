@@ -4,7 +4,7 @@
 - This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
 - Each alert can be turned on and off on a node by node basis ( via .env ) or globally via /notifications on vStatsBot.
 
-<b>Dashboard:</b>
+### Dashboard:
 
 Shows your node stats on a single page.
 
@@ -12,7 +12,7 @@ Unique page can be found by running /nodestats in vStatsBot
 
 Example dashboard https://vstats.test/node-stats/example
 
-<b>Alerts:</b>
+### Alerts:
 
 Node summary request. Type /nodestats for a server summary. These are also scheduled daily. 
 
