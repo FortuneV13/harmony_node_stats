@@ -82,6 +82,8 @@ Send the command `/token` to the @vStatsBot on telegram to get your token.
 
 Copy the token, as message on telegram will auto delete after 60 seconds.
 
+The same token can be used on all your nodes. 
+
 ### 3) Setup 
 Install required packages if missing:
 
