@@ -8,7 +8,6 @@ from includes.config import *
 def getNodeStats() -> str:
     mode = ""
     for x in range(5):
-        print(x)
         try:
             ourVersion = subprocess.getoutput(f"{envs.HARMONY_FOLDER}/hmy utility metadata")
             str1 = json.loads(ourVersion)
@@ -17,7 +16,6 @@ def getNodeStats() -> str:
                 return mode
                 break
             else:
-                log.error("Node stats - Signing mode could not be found")
                 time.sleep(3)  
         except:
             mode = "error"
