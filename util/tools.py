@@ -12,7 +12,7 @@ def getNodeStats() -> str:
         mode = (str1["result"])
     except:
         mode = "error"
-        log.error("Signing mode could not be found")
+        log.error("Node stats - Signing mode could not be found")
     return mode 
     
     
