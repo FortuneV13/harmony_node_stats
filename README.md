@@ -57,7 +57,7 @@ Updated: 28 mins ago
 
 ## Data Collected
 - Harmony Utility Metadata ( blskey list, version number )
-- Blockchain Heigh ( Remote + Local )
+- Blockchain Height ( Remote + Local )
 - Hostname
 - Server Load
 - Server Space in current filesystem
