@@ -13,7 +13,6 @@ def getNodeStats() -> str:
             ourVersion = subprocess.getoutput(f"{envs.HARMONY_FOLDER}/hmy utility metadata")
             str1 = json.loads(ourVersion)
             if "result" in str1:
-                print("Exists")
                 mode = (str1["result"])
                 return mode
                 break
