@@ -1,18 +1,27 @@
 import subprocess
 import os
 import json
+import time
 from includes.config import *
 
 
 def getNodeStats() -> str:
     mode = ""
-    try:
-        ourVersion = subprocess.getoutput(f"{envs.HARMONY_FOLDER}/hmy utility metadata")
-        str1 = json.loads(ourVersion)
-        mode = (str1["result"])
-    except:
-        mode = "error"
-        log.error("Node stats - Signing mode could not be found")
+    for x in range(5):
+        print(x)
+        try:
+            ourVersion = subprocess.getoutput(f"{envs.HARMONY_FOLDER}/hmy utility metadata")
+            str1 = json.loads(ourVersion)
+            if "result" in str1:
+                print("Exists")
+                mode = (str1["result"])
+                return mode
+                break
+            else:
+                time.sleep(3)  
+        except:
+            mode = "error"
+            log.error("Node stats - Signing mode could not be found")
     return mode 
     
     
