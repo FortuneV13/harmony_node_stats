@@ -12,11 +12,14 @@ def getNodeStats() -> str:
             ourVersion = subprocess.getoutput(f"{envs.HARMONY_FOLDER}/hmy utility metadata")
             str1 = json.loads(ourVersion)
             if "result" in str1:
-                mode = (str1["result"])
-                return mode
-                break
+                if "consensus" in str1["result"]:
+                    mode = str1["result"]
+                    return mode
+                    break
+                else:
+                    time.sleep(3) 
             else:
-                time.sleep(5)  
+                time.sleep(3)  
         except:
             mode = "error"
             log.error("Node stats - Signing mode could not be found")
