@@ -16,7 +16,7 @@ def getNodeStats() -> str:
                 return mode
                 break
             else:
-                time.sleep(3)  
+                time.sleep(5)  
         except:
             mode = "error"
             log.error("Node stats - Signing mode could not be found")
