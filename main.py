@@ -1,7 +1,6 @@
-import json
 import subprocess
 import os
-
+import json
 from time import sleep
 from includes.config import *
 from util.connect import connect_to_api
@@ -26,15 +25,17 @@ while True:
     send_shard_main_remote = 0
     send_shard_main_local = 0
    
-
+   
+        
     try:
-
         # Get Server Load
         load = os.getloadavg()
 
+
         # Get Node utility metadata
         node_stats = getNodeStats()
-        
+
+    
         # Get Shard ID from node
         shard = node_stats['shard-id']
         
