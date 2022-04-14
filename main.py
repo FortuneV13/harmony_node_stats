@@ -1,6 +1,5 @@
 import subprocess
 import os
-import json
 from time import sleep
 from includes.config import *
 from util.connect import connect_to_api
@@ -40,27 +39,22 @@ while True:
         shard = node_stats['shard-id']
         
         # Shard 0 - Remote
-        result_shard_0_remote = run([f'{envs.HARMONY_FOLDER}/hmy', 'blockchain', 'latest-headers', f'--node=https://api.s0.t.hmny.io'], stdout=PIPE, stderr=PIPE, universal_newlines=True)
-        result_shard_0_remote = json.loads(result_shard_0_remote.stdout)
+        result_shard_0_remote = getSyncRemote(f'https://api.s0.t.hmny.io')
         send_shard_0_remote =  literal_eval(result_shard_0_remote['result']['shard-chain-header']['number'])
         
         # Shard Main - Remote
-        result_shard_main_remote = run([f'{envs.HARMONY_FOLDER}/hmy', 'blockchain', 'latest-headers', f'--node=https://api.s{shard}.t.hmny.io'], stdout=PIPE, stderr=PIPE, universal_newlines=True)
-        result_shard_main_remote = json.loads(result_shard_main_remote.stdout)
+        result_shard_main_remote = getSyncRemote(f'https://api.s{shard}.t.hmny.io')
         send_shard_main_remote =  literal_eval(result_shard_main_remote['result']['shard-chain-header']['number'])
         
         # Locals
-        result_local_shard = run([f'{envs.HARMONY_FOLDER}/hmy', 'blockchain', 'latest-headers'], stdout=PIPE, stderr=PIPE, universal_newlines=True)
-        result_local_shard = json.loads(result_local_shard.stdout)
-        # Shard 0 - Local
+        result_local_shard = getSyncLocal()
         send_shard_0_local =  literal_eval(result_local_shard['result']['beacon-chain-header']['number'])
-        # Shard Main - Local
         send_shard_main_local =  literal_eval(result_local_shard['result']['shard-chain-header']['number'])
   
         # Space left
         space = subprocess.check_output('df -BG --output=avail "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
   
-        # Send to vStats
+        # # Send to vStats
         alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
         
     except Exception as e:
