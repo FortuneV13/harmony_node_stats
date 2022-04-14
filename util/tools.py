@@ -42,7 +42,8 @@ def get_json_for_command_sync(process_args, retries=3, retry_wait=0.1):
     process = Popen(process_args, stdout=PIPE)
     (output, err) = process.communicate()
     try:
-        return simplejson.loads(output)
+        routput = simplejson.loads(output)
+        return routput['result']
     except simplejson.JSONDecodeError:
         sleep(retry_wait)
         log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
@@ -51,19 +52,20 @@ def get_json_for_command_sync(process_args, retries=3, retry_wait=0.1):
             return get_json_for_command_sync(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
 
-def get_json_for_command_sync_remote(process_args, url, retries=3, retry_wait=0.1):
+def get_json_for_command_sync_remote(process_args, retries=3, retry_wait=0.1):
     original_process_args = process_args[:]
-    process_args.extend(["--node", url])
+    # process_args.extend(["--node", url])
     process = Popen(process_args, stdout=PIPE)
     (output, err) = process.communicate()
     try:
-        return simplejson.loads(output)
+        routput = simplejson.loads(output)
+        return routput['result']
     except simplejson.JSONDecodeError:
         sleep(retry_wait)
         log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
               f"retrying after {retry_wait}s")
         if retries > 0:
-            return get_json_for_command_sync_remote(original_process_args, url, retries=retries - 1, retry_wait=retry_wait * 1.25)
+            return get_json_for_command_sync_remote(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
  
 def getNodeStats():
@@ -73,7 +75,7 @@ def getSyncLocal():
     return get_json_for_command_sync([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers"])
  
 def getSyncRemote(url):
-    return get_json_for_command_sync_remote([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers"],url)    
+    return get_json_for_command_sync_remote([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers","--node",url])    
         
 
     
