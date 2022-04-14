@@ -24,17 +24,14 @@ while True:
     send_shard_main_remote = 0
     send_shard_main_local = 0
    
-   
         
     try:
         # Get Server Load
         load = os.getloadavg()
 
-
         # Get Node utility metadata
         node_stats = getNodeStats()
 
-    
         # Get Shard ID from node
         shard = node_stats['shard-id']
         
@@ -52,8 +49,13 @@ while True:
         send_shard_main_local =  literal_eval(result_local_shard['result']['shard-chain-header']['number'])
   
         # Space left
-        space = subprocess.check_output('df -BG --output=avail "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
-  
+        try:
+            space = subprocess.check_output('df -BG --output=avail "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
+        except Exception as e:
+            log.error(e) 
+            log.error(f"Please fix me! - Space left func error")
+            alerts.generic_error(e)
+            
         # # Send to vStats
         alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
         
