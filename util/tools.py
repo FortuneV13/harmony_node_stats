@@ -5,7 +5,7 @@ from includes.config import *
 from subprocess import PIPE, Popen
 
 #robo
-# def get_json_for_command(process_args, retries=3, retry_wait=0.1):
+# def get_json_for_command(process_args, retries=10, retry_wait=1.0):
 #     original_process_args = process_args[:]
 #     if config.USE_REMOTE_NODE:
 #         process_args.extend(["--node", config.NODE_API_URL])
@@ -22,7 +22,7 @@ from subprocess import PIPE, Popen
 #     return None
 
 
-def get_json_for_command_nodeStats(process_args, retries=3, retry_wait=0.1):
+def get_json_for_command_nodeStats(process_args, retries=10, retry_wait=1.0):
     original_process_args = process_args[:]
     process = Popen(process_args, stdout=PIPE)
     (output, err) = process.communicate()
@@ -37,7 +37,7 @@ def get_json_for_command_nodeStats(process_args, retries=3, retry_wait=0.1):
             return get_json_for_command_nodeStats(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
     
-def get_json_for_command_sync(process_args, retries=3, retry_wait=0.1):
+def get_json_for_command_sync(process_args, retries=10, retry_wait=1.0):
     original_process_args = process_args[:]
     process = Popen(process_args, stdout=PIPE)
     (output, err) = process.communicate()
@@ -52,7 +52,7 @@ def get_json_for_command_sync(process_args, retries=3, retry_wait=0.1):
             return get_json_for_command_sync(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
 
-def get_json_for_command_sync_remote(process_args, retries=3, retry_wait=0.1):
+def get_json_for_command_sync_remote(process_args, retries=10, retry_wait=1.0):
     original_process_args = process_args[:]
     # process_args.extend(["--node", url])
     process = Popen(process_args, stdout=PIPE)
