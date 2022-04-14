@@ -4,9 +4,25 @@ from time import sleep
 from includes.config import *
 from subprocess import PIPE, Popen
 
+#robo
+# def get_json_for_command(process_args, retries=3, retry_wait=0.1):
+#     original_process_args = process_args[:]
+#     if config.USE_REMOTE_NODE:
+#         process_args.extend(["--node", config.NODE_API_URL])
+#     process = Popen(process_args, stdout=PIPE)
+#     (output, err) = process.communicate()
+#     try:
+#         return simplejson.loads(output)
+#     except simplejson.JSONDecodeError:
+#         sleep(retry_wait)
+#         print(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
+#               f"retrying after {retry_wait}s")
+#         if retries > 0:
+#             return get_json_for_command(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
+#     return None
 
 
-def get_json_for_command(process_args, retries=3, retry_wait=0.1):
+def get_json_for_command_nodeStats(process_args, retries=3, retry_wait=0.1):
     original_process_args = process_args[:]
     process = Popen(process_args, stdout=PIPE)
     (output, err) = process.communicate()
@@ -20,34 +36,50 @@ def get_json_for_command(process_args, retries=3, retry_wait=0.1):
         if retries > 0:
             return get_json_for_command(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
+    
+def get_json_for_command_sync(process_args, retries=3, retry_wait=0.1):
+    original_process_args = process_args[:]
+    process = Popen(process_args, stdout=PIPE)
+    (output, err) = process.communicate()
+    try:
+        return simplejson.loads(output)
+    except simplejson.JSONDecodeError:
+        sleep(retry_wait)
+        log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
+              f"retrying after {retry_wait}s")
+        if retries > 0:
+            return get_json_for_command(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
+    return None
+
+def get_json_for_command_sync_remote(process_args, url, retries=3, retry_wait=0.1):
+    original_process_args = process_args[:]
+    process_args.extend(["--node", url])
+    process = Popen(process_args, stdout=PIPE)
+    (output, err) = process.communicate()
+    try:
+        return simplejson.loads(output)
+    except simplejson.JSONDecodeError:
+        sleep(retry_wait)
+        log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
+              f"retrying after {retry_wait}s")
+        if retries > 0:
+            return get_json_for_command(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
+    return None
  
 def getNodeStats():
-    return get_json_for_command([envs.HARMONY_FOLDER+"/hmy", "utility", "metadata"])
+    return get_json_for_command_nodeStats([envs.HARMONY_FOLDER+"/hmy", "utility", "metadata"])
     
+def getSyncLocal():
+    return get_json_for_command_sync([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers"])
+ 
+def getSyncRemote(url):
+    return get_json_for_command_sync_remote([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers"],url)    
         
-# def getNodeStats() -> dict:
-#     mode = ""
-#     for x in range(5):
-#         try:
-#             ourVersion = subprocess.getoutput(f"{envs.HARMONY_FOLDER}/hmy utility metadata")
-#             str1 = json.loads(ourVersion)
-#             if "result" in str1:
-#                 if "consensus" in str1["result"]:
-#                     mode = str1["result"]
-#                     return mode
-#                     break
-#                 else:
-#                     time.sleep(3) 
-#             else:
-#                 time.sleep(3)  
-#         except:
-#             mode = "error"
-#             log.error("Node stats - Signing mode could not be found")
-#     return mode 
-    
-    
-    
 
+    
+    
+    
+    
 
 def flatten(d: dict) -> None:
     """Flatten a nested dictionary.
