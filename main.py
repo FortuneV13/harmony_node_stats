@@ -37,16 +37,16 @@ while True:
         
         # Shard 0 - Remote
         result_shard_0_remote = getSyncRemote(f'https://api.s0.t.hmny.io')
-        send_shard_0_remote =  literal_eval(result_shard_0_remote['result']['shard-chain-header']['number'])
+        send_shard_0_remote =  literal_eval(result_shard_0_remote['shard-chain-header']['number'])
         
         # Shard Main - Remote
         result_shard_main_remote = getSyncRemote(f'https://api.s{shard}.t.hmny.io')
-        send_shard_main_remote =  literal_eval(result_shard_main_remote['result']['shard-chain-header']['number'])
+        send_shard_main_remote =  literal_eval(result_shard_main_remote['shard-chain-header']['number'])
         
         # Locals
         result_local_shard = getSyncLocal()
-        send_shard_0_local =  literal_eval(result_local_shard['result']['beacon-chain-header']['number'])
-        send_shard_main_local =  literal_eval(result_local_shard['result']['shard-chain-header']['number'])
+        send_shard_0_local =  literal_eval(result_local_shard['beacon-chain-header']['number'])
+        send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
   
         # Space left
         try:
