@@ -32,7 +32,13 @@ def get_json_for_command_nodeStats(process_args, retries=10, retry_wait=1.0):
     except simplejson.JSONDecodeError:
         sleep(retry_wait)
         log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
-              f"retrying after {retry_wait}s")
+            f"retrying after {retry_wait}s")
+        if retries > 0:
+            return get_json_for_command_nodeStats(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
+    except KeyError:
+        sleep(retry_wait)
+        log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
+            f"retrying after {retry_wait}s")
         if retries > 0:
             return get_json_for_command_nodeStats(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
@@ -50,6 +56,12 @@ def get_json_for_command_sync(process_args, retries=10, retry_wait=1.0):
               f"retrying after {retry_wait}s")
         if retries > 0:
             return get_json_for_command_sync(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
+    except KeyError:
+        sleep(retry_wait)
+        log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
+            f"retrying after {retry_wait}s")
+        if retries > 0:
+            return get_json_for_command_nodeStats(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
 
 def get_json_for_command_sync_remote(process_args, retries=10, retry_wait=1.0):
@@ -66,6 +78,12 @@ def get_json_for_command_sync_remote(process_args, retries=10, retry_wait=1.0):
               f"retrying after {retry_wait}s")
         if retries > 0:
             return get_json_for_command_sync_remote(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
+    except KeyError:
+        sleep(retry_wait)
+        log.error(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
+            f"retrying after {retry_wait}s")
+        if retries > 0:
+            return get_json_for_command_nodeStats(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
  
 def getNodeStats():
