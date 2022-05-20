@@ -29,16 +29,6 @@ Difference: -4719
 ```
 🔻Shard2-fsn --- Space Low 20GB Left🔻
 ```
-- <b>Double Signing Check - Alerts you if a bls key is found on one or more signing servers</b>
-```
-🚨Double Signing🚨
-Identical Keys exist on multiple signing Shard 3 servers: 
-shard3-fsn
-shard3-hel
-Matched Keys:
-0701becb090da6d7a74175f645c3827756433278064b89a3299fceaf95c5faa2faeab642bd5c46e30128f1240742ce8f
-Date & Time: 2022-02-07 13:03:34
-```
 - <b>If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.</b>
 ```
 🚨!!! shard3-fsn = Syncing !!!🚨
@@ -53,6 +43,16 @@ Shard 0: Synced
 Shard 3: Synced
 Load: 2.63
 Updated: 28 mins ago 
+```
+- <b>Double Signing Check (disabled by default) - Alerts you if a bls key is found on one or more signing servers</b>
+```
+🚨Double Signing🚨
+Identical Keys exist on multiple signing Shard 3 servers: 
+shard3-fsn
+shard3-hel
+Matched Keys:
+0701becb090da6d7a74175f645c3827756433278064b89a3299fceaf95c5faa2faeab642bd5c46e30128f1240742ce8f
+Date & Time: 2022-02-07 13:03:34
 ```
 
 ## Data Collected
