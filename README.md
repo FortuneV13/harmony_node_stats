@@ -72,7 +72,7 @@ We suggest storing it in your home folder.
 
 ```
 cd ~/
-git clone https://github.com/DavidWhicker/harmony_node_stats.git
+git clone https://github.com/FortuneV13/harmony_node_stats
 cd harmony_node_stats
 ```
 To update use `git pull`
