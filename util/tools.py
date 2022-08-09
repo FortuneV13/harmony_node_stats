@@ -4,24 +4,6 @@ from time import sleep
 from includes.config import *
 from subprocess import PIPE, Popen
 
-#robo
-# def get_json_for_command(process_args, retries=10, retry_wait=1.0):
-#     original_process_args = process_args[:]
-#     if config.USE_REMOTE_NODE:
-#         process_args.extend(["--node", config.NODE_API_URL])
-#     process = Popen(process_args, stdout=PIPE)
-#     (output, err) = process.communicate()
-#     try:
-#         return simplejson.loads(output)
-#     except simplejson.JSONDecodeError:
-#         sleep(retry_wait)
-#         print(f"Got an error in get_json_for_command({' '.join(process_args)}), output={output}, err={err}, "
-#               f"retrying after {retry_wait}s")
-#         if retries > 0:
-#             return get_json_for_command(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
-#     return None
-
-
 def get_json_for_command_nodeStats(process_args, retries=10, retry_wait=1.0):
     original_process_args = process_args[:]
     process = Popen(process_args, stdout=PIPE)
@@ -86,14 +68,20 @@ def get_json_for_command_sync_remote(process_args, retries=10, retry_wait=1.0):
             return get_json_for_command_nodeStats(original_process_args, retries=retries - 1, retry_wait=retry_wait * 1.25)
     return None
  
-def getNodeStats():
-    return get_json_for_command_nodeStats([envs.HARMONY_FOLDER+"/hmy", "utility", "metadata"])
+def getNodeStats(shardValue:dict):
+    if shardValue['http_port']: 
+        return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata","--node","http://localhost:"+shardValue['http_port']])
+    else:
+        return get_json_for_command_nodeStats([eshardValue["harmony_folder"]+"/hmy", "utility", "metadata"])
     
-def getSyncLocal():
-    return get_json_for_command_sync([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers"])
+def getSyncLocal(shardValue:dict):
+    if shardValue['http_port']: 
+        return get_json_for_command_sync([shardValue["harmony_folder"]+"/hmy", "blockchain", "latest-headers","--node","http://localhost:"+shardValue['http_port']])
+    else:
+        return get_json_for_command_sync([shardValue["harmony_folder"]+"/hmy", "blockchain", "latest-headers"])
  
-def getSyncRemote(url):
-    return get_json_for_command_sync_remote([envs.HARMONY_FOLDER+"/hmy", "blockchain", "latest-headers","--node",url])    
+def getSyncRemote(shardValue:dict,url):
+    return get_json_for_command_sync_remote([shardValue["harmony_folder"]+"/hmy", "blockchain", "latest-headers","--node",url])    
         
 
     
