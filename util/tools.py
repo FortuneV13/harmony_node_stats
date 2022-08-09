@@ -70,13 +70,13 @@ def get_json_for_command_sync_remote(process_args, retries=10, retry_wait=1.0):
  
 def getNodeStats(shardValue:dict):
     if shardValue['http_port']: 
-        return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata","--node","http://localhost:"+shardValue['http_port']])
+        return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata","--node","http://localhost:"+f'{shardValue["http_port"]}'])
     else:
         return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata"])
     
 def getSyncLocal(shardValue:dict):
     if shardValue['http_port']: 
-        return get_json_for_command_sync([shardValue["harmony_folder"]+"/hmy", "blockchain", "latest-headers","--node","http://localhost:"+shardValue['http_port']])
+        return get_json_for_command_sync([shardValue["harmony_folder"]+"/hmy", "blockchain", "latest-headers","--node","http://localhost:"+f'{shardValue["http_port"]}'])
     else:
         return get_json_for_command_sync([shardValue["harmony_folder"]+"/hmy", "blockchain", "latest-headers"])
  
