@@ -25,7 +25,7 @@ SHARD_ARRAY = {
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
 	# 	"node_port":"" #optional - only if running multi shard server
 	# },
-	
+	 
 	"shard-1":{
 		"harmony_folder":"/home/serviceharmony/harmony",
 		"http_port":"" #optional - only if running multi shard server
