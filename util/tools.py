@@ -1,7 +1,7 @@
 import os
 import simplejson
 from time import sleep
-from includes.config import *
+from includes.setup import *
 from subprocess import PIPE, Popen
 
 def get_json_for_command_nodeStats(process_args, retries=10, retry_wait=1.0):

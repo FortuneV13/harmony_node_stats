@@ -1,5 +1,5 @@
 import logging as log
-from includes.config import *
+from includes.setup import *
 from config import *
 
 class Alerts:

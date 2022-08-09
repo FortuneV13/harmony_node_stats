@@ -1,7 +1,7 @@
 import subprocess
 import os
 from time import sleep
-from includes.config import *
+from includes.setup import *
 from util.connect import connect_to_api
 from util.tools import *
 from bases.alerts import Alerts
