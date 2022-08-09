@@ -20,7 +20,7 @@ SPACE_CHECK_ENABLED=True
 #- Comment/Uncomment as necessary 
 #- Comment out http_port if NOT running a multiple shard server
 SHARD_ARRAY = {
-	
+	 
 	# "shard-0":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
 	# 	"node_port":"" #optional - only if running multi shard server

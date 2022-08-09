@@ -91,12 +91,8 @@ Install required packages if missing:
 ```
 sudo apt install python3-pip
 pip3 install -r requirements.txt
-```
-Rename .env.example to .env and edit the following variables:
-```
-cp .env.example .env
-nano .env
-```
+
+Edit config.py variables ( now support for multiple shards per server):
 ```
 #Add your token from vstats. Run /token on vStatsBot
 VSTATS_TOKEN="" 
@@ -105,19 +101,41 @@ VSTATS_TOKEN=""
 VALIDATOR_ADDRESS=""
 
 # Alert when blskey match is found on 1 or more servers | Default: false  
-DOUBLE_SIGN_CHECK_ENABLED=true|false 
+DOUBLE_SIGN_CHECK_ENABLED=True|False 
 
 # Alert when local vs remote gap is larger than 100 | Default: true  
-SYNC_CHECK_ENABLED=true|false 
+SYNC_CHECK_ENABLED=True|False 
 
 # Alert when space is less than 30GB | Default: true  
-SPACE_CHECK_ENABLED=true|false
+SPACE_CHECK_ENABLED=True|False 
 
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
-HARMONY_FOLDER=""
+SHARD_ARRAY = {
+	
+	# "shard-0":{
+	# 	"harmony_folder":"/home/serviceharmony/harmony",
+	# 	"node_port":"" #optional - only if running multi shard server
+	# },
+	
+	"shard-1":{
+		"harmony_folder":"/home/serviceharmony/harmony",
+		"http_port":"" #optional - only if running multi shard server
+	},
+	
+	# "shard-2":{
+	# 	"harmony_folder":"/home/serviceharmony/harmony",
+	# 	"http_port":"" #optional - only if running multi shard server
+	# },
+	
+    # "shard-3":{
+	# 	"harmony_folder":"/home/serviceharmony/harmony",
+	# 	"http_port":"" #optional - only if running multi shard server
+	# },
+	
+}
 ```
 ### 4) Test Script 
-Test the .env variables and script is working as expected. 
+Test the config variables and script is working as expected. 
 
 Run the below from the script directory:
 
