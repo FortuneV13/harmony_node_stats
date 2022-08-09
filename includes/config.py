@@ -24,7 +24,7 @@ log = logging.getLogger()
 VSTATS_API = "https://vstats.one/api/node-stats"
 
 alerts_context = dict(
-    envs=envs,
+    # envs=envs,
     LOOP_COUNT=0,
     hostname=hostname
 )
