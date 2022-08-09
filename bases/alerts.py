@@ -1,5 +1,6 @@
 import logging as log
 from includes.config import *
+from config import *
 
 class Alerts:
     def __init__(self, VSTATS_API: str, connect_to_api: object, **kwargs) -> None:
@@ -9,11 +10,11 @@ class Alerts:
 
     def send_to_vstats(self,node_stats: dict,send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str,space:str,count:int) -> None:
         j = {
-            "api_token": self.envs.VSTATS_TOKEN,
-            "validator_address": self.envs.VALIDATOR_ADDRESS,
-            "double_sign_check_enabled": self.envs.DOUBLE_SIGN_CHECK_ENABLED,
-            "sync_check_enabled": self.envs.SYNC_CHECK_ENABLED,
-            "space_check_enabled": self.envs.SPACE_CHECK_ENABLED,
+            "api_token": VSTATS_TOKEN,
+            "validator_address": VALIDATOR_ADDRESS,
+            "double_sign_check_enabled": DOUBLE_SIGN_CHECK_ENABLED,
+            "sync_check_enabled": SYNC_CHECK_ENABLED,
+            "space_check_enabled": SPACE_CHECK_ENABLED,
             "send_shard-0-remote": send_shard_0_remote,
             "send_shard-0-local": send_shard_0_local,
             "send_shard-main-remote": send_shard_main_remote,
@@ -30,7 +31,7 @@ class Alerts:
 
     def generic_error(self,e) -> None:
         j = {
-            "api_token": self.envs.VSTATS_TOKEN,
+            "api_token": VSTATS_TOKEN,
             "error": 'true',
             "hostname":self.hostname
         }
