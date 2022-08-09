@@ -72,7 +72,7 @@ def getNodeStats(shardValue:dict):
     if shardValue['http_port']: 
         return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata","--node","http://localhost:"+shardValue['http_port']])
     else:
-        return get_json_for_command_nodeStats([eshardValue["harmony_folder"]+"/hmy", "utility", "metadata"])
+        return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata"])
     
 def getSyncLocal(shardValue:dict):
     if shardValue['http_port']: 
