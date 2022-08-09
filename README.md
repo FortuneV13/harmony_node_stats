@@ -114,22 +114,22 @@ SHARD_ARRAY = {
 	
 	# "shard-0":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"node_port":"" #optional - only if running multi shard server
+	# 	"node_port":9501 
 	# },
-	
+	 
 	"shard-1":{
 		"harmony_folder":"/home/serviceharmony/harmony",
-		"http_port":"" #optional - only if running multi shard server
+		"http_port":9501 
 	},
 	
 	# "shard-2":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":"" #optional - only if running multi shard server
+	# 	"http_port":9501 
 	# },
 	
     # "shard-3":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":"" #optional - only if running multi shard server
+	# 	"http_port":9501 
 	# },
 	
 }
