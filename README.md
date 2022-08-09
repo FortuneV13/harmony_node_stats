@@ -91,7 +91,7 @@ Install required packages if missing:
 ```
 sudo apt install python3-pip
 pip3 install -r requirements.txt
-
+```
 Rename config.example.py to config.py and edit the following variables:
 ```
 cp config.example.py config.py
