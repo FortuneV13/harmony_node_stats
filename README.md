@@ -132,7 +132,7 @@ SHARD_ARRAY = {
 	# 	"http_port":9501 
 	# },
 	
-    # "shard-3":{
+	# "shard-3":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
 	# 	"http_port":9501 
 	# },
