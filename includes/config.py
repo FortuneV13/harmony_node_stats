@@ -18,7 +18,7 @@ logging.basicConfig(
 )
 log = logging.getLogger()
 
-envs = Envs()
+# envs = Envs()
 
 
 VSTATS_API = "https://vstats.one/api/node-stats"
