@@ -190,15 +190,6 @@ sudo service harmony_node_stats start
 sudo service harmony_node_stats status
 ```
 
-### 5b) Alternative Setup - Tmux
-
-`tmux new-session -s harmony_node_stats`
-
-`cd ~/harmony_node_stats/`
-
-`python3 main.py`
-
-
 ### Logs
 Check logs to make sure the script is running as expected. 
 
