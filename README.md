@@ -157,7 +157,7 @@ Run the following with sudo privileges.
 ```
 sudo vi /etc/systemd/system/harmony_node_stats.service
 ```
-Copy the below into the service file making sure to edit the User and WorkingDirectory. 
+Copy the below into the service file making sure to edit the User and WorkingDirectory first. 
 ```
 [Unit]
 Description=harmony_node_stats daemon
