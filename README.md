@@ -178,7 +178,7 @@ LimitNPROC=65536
 [Install]
 WantedBy=multi-user.target
 ```
-Type :wq to save and exit. 
+Type `:wq` to save and exit. 
 
 Now enable the service:
 
