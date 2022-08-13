@@ -154,7 +154,6 @@ Alerts on screen AND vStatsBot should appear. Once successful, please cancel the
 Now setup script to run as a service in the background. 
 
 Run the following with sudo privileges. 
-Please note: add correct info for USER & PATH TO SCRIPT
 ```
 sudo vi /etc/systemd/system/harmony_node_stats.service
 ```
@@ -168,8 +167,8 @@ After=network-online.target
 Type=simple
 Restart=always
 RestartSec=1
-User=USER
-WorkingDirectory=PATH TO SCRIPT
+User=serviceharmony
+WorkingDirectory=/home/serviceharmony/harmony_node_stats
 ExecStart=python3 main.py
 SyslogIdentifier=harmony_node_stats
 StartLimitInterval=0
