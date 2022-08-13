@@ -150,16 +150,16 @@ python3 main.py
 
 Alerts on screen AND vStatsBot should appear. Once successful, please cancel the script ( CTRL + C ) and move onto the next step.
 
-## Automate the script via a service (5a) or tmux session (5b).
-### 5a) Setup Service
+## Automate the script via a service 
 Now setup script to run as a service in the background. 
 
-Run the following with root privileges. If you do not have access with root then you may setup a tmux session ( see: Alternative Setup - Tmux ).
-
+Run the following with sudo privileges. 
 Please note: add correct info for USER & PATH TO SCRIPT
-
 ```
-cat<<-EOF > /etc/systemd/system/harmony_node_stats.service
+sudo vi /etc/systemd/system/harmony_node_stats.service
+```
+Copy the below into the service file making sure to edit the User and WorkingDirectory. 
+```
 [Unit]
 Description=harmony_node_stats daemon
 After=network-online.target
@@ -178,9 +178,10 @@ LimitNPROC=65536
 
 [Install]
 WantedBy=multi-user.target
-EOF
 ```
-Followed by:
+Type :wq to save and exit. 
+
+Now enable the service:
 
 ```
 sudo systemctl daemon-reload
