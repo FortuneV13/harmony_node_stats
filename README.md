@@ -117,22 +117,22 @@ SPACE_CHECK_ENABLED=True|False
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
 SHARD_ARRAY = {
 	
-	# "shard-0":{
-	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"node_port":9501 
-	# },
-	 
-	"shard-1":{
+	"first-shard":{
 		"harmony_folder":"/home/serviceharmony/harmony",
-		"http_port":9501 
+		"node_port":9501 
 	},
 	
-	# "shard-2":{
+	# "second-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
 	# 	"http_port":9501 
 	# },
 	
-	# "shard-3":{
+	# "third-shard":{
+	# 	"harmony_folder":"/home/serviceharmony/harmony",
+	# 	"http_port":9501 
+	# },
+	
+    # "forth-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
 	# 	"http_port":9501 
 	# },
