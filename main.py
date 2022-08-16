@@ -43,10 +43,10 @@ while True:
                 send_shard_main_local = None
                 
                 # Get Node utility metadata
-                node_stats = getNodeStats(shardValue)
-                # Get Shard ID from node
-                # shard = shardKey
-                shard = node_stats['shard-id']
+                # node_stats = getNodeStats(shardValue)
+                # # Get Shard ID from node
+                # # shard = shardKey
+                # shard = node_stats['shard-id']
                 
                 try:
                     # Shard 0 - Remote
