@@ -56,7 +56,7 @@ while True:
                     # result_shard_main_remote = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
                     # send_shard_main_remote =  literal_eval(result_shard_main_remote['shard-chain-header']['number'])
                     # Locals
-                    result_local_shard = getSyncLocal(shardValue)
+                    # result_local_shard = getSyncLocal(shardValue)
                     # send_shard_0_local =  literal_eval(result_local_shard['beacon-chain-header']['number'])
                     send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
                 except Exception as e:
