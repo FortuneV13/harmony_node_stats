@@ -51,6 +51,7 @@ while True:
                 try:
                     # Shard 0 - Remote
                     result_shard_0_remote = getSyncRemote(shardValue,f'https://api.s0.t.hmny.io')
+                    print(result_shard_0_remote)
                     send_shard_0_remote =  literal_eval(result_shard_0_remote['shard-chain-header']['number'])
                     # Shard Main - Remote
                     result_shard_main_remote = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
