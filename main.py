@@ -58,7 +58,7 @@ while True:
                     # Locals
                     # result_local_shard = getSyncLocal(shardValue)
                     # send_shard_0_local =  literal_eval(result_local_shard['beacon-chain-header']['number'])
-                    send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
+                    # send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
                 except Exception as e:
                     send_shard_0_remote = None
                     send_shard_0_local = None
