@@ -23,22 +23,22 @@ SHARD_ARRAY = {
 
 	"first-shard":{
 		"harmony_folder":"/home/serviceharmony/harmony",
-		"node_port":9501 
+		"node_port":9501, 
 	},
 	
 	# "second-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501 
+	# 	"http_port":9501, 
 	# },
 	
 	# "third-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501 
+	# 	"http_port":9501, 
 	# },
 	
     # "forth-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501 
+	# 	"http_port":9501, 
 	# },
 	
 }
