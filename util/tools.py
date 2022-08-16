@@ -69,7 +69,6 @@ def get_json_for_command_sync_remote(process_args, retries=10, retry_wait=1.0):
     return None
  
 def getNodeStats(shardValue:dict):
-    print(shardValue)
     if shardValue['http_port']: 
         return get_json_for_command_nodeStats([shardValue["harmony_folder"]+"/hmy", "utility", "metadata","--node","http://localhost:"+f'{shardValue["http_port"]}'])
     else:
