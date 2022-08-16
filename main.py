@@ -43,22 +43,22 @@ while True:
                 send_shard_main_local = None
                 
                 # Get Node utility metadata
-                # node_stats = getNodeStats(shardValue)
-                # # Get Shard ID from node
-                # # shard = shardKey
-                # shard = node_stats['shard-id']
+                node_stats = getNodeStats(shardValue)
+                # Get Shard ID from node
+                # shard = shardKey
+                shard = node_stats['shard-id']
                 
                 try:
                     # Shard 0 - Remote
                     result_shard_0_remote = getSyncRemote(shardValue,f'https://api.s0.t.hmny.io')
-                    # send_shard_0_remote =  literal_eval(result_shard_0_remote['shard-chain-header']['number'])
-                    # # Shard Main - Remote
-                    # result_shard_main_remote = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
-                    # send_shard_main_remote =  literal_eval(result_shard_main_remote['shard-chain-header']['number'])
-                    # # Locals
-                    # result_local_shard = getSyncLocal(shardValue)
-                    # send_shard_0_local =  literal_eval(result_local_shard['beacon-chain-header']['number'])
-                    # send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
+                    send_shard_0_remote =  literal_eval(result_shard_0_remote['shard-chain-header']['number'])
+                    # Shard Main - Remote
+                    result_shard_main_remote = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
+                    send_shard_main_remote =  literal_eval(result_shard_main_remote['shard-chain-header']['number'])
+                    # Locals
+                    result_local_shard = getSyncLocal(shardValue)
+                    send_shard_0_local =  literal_eval(result_local_shard['beacon-chain-header']['number'])
+                    send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
                 except Exception as e:
                     send_shard_0_remote = None
                     send_shard_0_local = None
