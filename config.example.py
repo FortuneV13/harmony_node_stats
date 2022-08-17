@@ -7,7 +7,7 @@ VALIDATOR_ADDRESS=""
 # Double Signing Checks
 DOUBLE_SIGN_CHECK_ENABLED=False
 
-#Sync Check 
+#Sync Check
 SYNC_CHECK_ENABLED=True
 
 #Space Check
