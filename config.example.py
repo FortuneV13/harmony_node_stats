@@ -22,7 +22,7 @@ SPACE_CHECK_ENABLED=True
 SHARD_ARRAY = {
 	"first-shard":{
 		"harmony_folder":"/home/serviceharmony/harmony",
-		"node_port":9501,
+		"http_port":9501,
 	},
 	# "second-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
