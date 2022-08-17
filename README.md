@@ -36,13 +36,11 @@ Please check node.
 ```
 - <b>Daily Node Summary Updates</b>
 ```
-🔶Shard3 Fsn🔶
-Mode: Normal
-Space: 846G
-Shard 0: Synced
-Shard 3: Synced
-Load: 2.63
-Updated: 28 mins ago 
+🔶Shard3🔶
+Shard 3: Normal | Synced
+Load: 0.73 | 0.74 | 0.72
+Space: 119G
+Updated: 14 mins ago
 ```
 
 ## Data Collected
