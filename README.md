@@ -10,7 +10,7 @@ Shows your node stats on a single page.
 
 Unique page can be found by running /nodestats in vStatsBot
 
-Example dashboard https://vstats.test/node-stats/example
+Example dashboard https://vstats.one/node-stats/example
 
 ### Alerts:
 
