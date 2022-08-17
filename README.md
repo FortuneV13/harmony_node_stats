@@ -44,19 +44,9 @@ Shard 3: Synced
 Load: 2.63
 Updated: 28 mins ago 
 ```
-- <b>Double Signing Check (disabled by default) - Alerts you if a bls key is found on one or more signing servers</b>
-```
-🚨Double Signing🚨
-Identical Keys exist on multiple signing Shard 3 servers: 
-shard3-fsn
-shard3-hel
-Matched Keys:
-0701becb090da6d7a74175f645c3827756433278064b89a3299fceaf95c5faa2faeab642bd5c46e30128f1240742ce8f
-Date & Time: 2022-02-07 13:03:34
-```
 
 ## Data Collected
-- Harmony Utility Metadata ( blskey list, version number )
+- Harmony Utility Metadata
 - Blockchain Height ( Remote + Local )
 - Hostname
 - Server Load
@@ -102,39 +92,27 @@ Edit config.py variables ( now support for multiple shards per server):
 #Add your token from vstats. Run /token on vStatsBot
 VSTATS_TOKEN="" 
 
-# Validator Address
-VALIDATOR_ADDRESS=""
-
-# Alert when blskey match is found on 1 or more servers | Default: false  
-DOUBLE_SIGN_CHECK_ENABLED=True|False 
-
-# Alert when local vs remote gap is larger than 100 | Default: true  
-SYNC_CHECK_ENABLED=True|False 
-
-# Alert when space is less than 30GB | Default: true  
-SPACE_CHECK_ENABLED=True|False 
-
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
 SHARD_ARRAY = {
 	
 	"first-shard":{
 		"harmony_folder":"/home/serviceharmony/harmony",
-		"node_port":9501 
+		"node_port":9501,
 	},
 	
 	# "second-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501 
+	# 	"http_port":9501,
 	# },
 	
 	# "third-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501 
+	# 	"http_port":9501,
 	# },
 	
     # "forth-shard":{
 	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501 
+	# 	"http_port":9501,
 	# },
 	
 }
