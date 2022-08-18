@@ -50,7 +50,7 @@ You will need to obtain a token from vStatsBot using the /token command on the b
 
 Once complete you should get a ping from vStatsBot to know it installed correctly.
 
-A special thanks to Patrick (Easy Node Validator) for supplying this script to help speed up the installation process. 
+A special thanks to Patrick (Easy Node Validator) for supplying this install script to help speed up the installation process. 
 
 ## Manual Installation:
 ### Get a token
