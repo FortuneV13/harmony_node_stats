@@ -1,70 +1,48 @@
 # Harmony Node Stats
 
 ## vStatsBot Alerts
-- This is an automated script that will periodically ( every 30 mins ) send your node data to vStats for dashboard + alerts.
-- Each alert can be turned on and off on a node by node basis ( via config.py ) or globally via /notifications on vStatsBot.
+- This is an automated script that will periodically ( every 30 mins ) check your node for errors e.g out of sync and alert you via vStatsBot.
+- Each alert can be turned on and off via /notifications on vStatsBot.
 
-### Dashboard:
+### Alert Examples:
 
-Shows your node stats on a single page.
-
-Unique page can be found by running /nodestats in vStatsBot
-
-Example dashboard https://vstats.one/node-stats/example
-
-### Alerts:
-
-Node summary request. Type /nodestats for a server summary. These are also scheduled daily. 
-
-All of the below can be toggled on or off via the config.py file.
+The following are automatic if a problem is detected:
 
 - <b>Blockchain Sync - Compares local vs remote height</b>
 ```
-🔻Shard2-Hel --- Shard 0 Behind🔻
+🔻Shard3 Node --- Shard 0 Behind🔻
 Remote: 22716160
 Local: 22711441
 Difference: -4719
 ```
 - <b>Space Left - Alerts you when space is lower than 30GB</b>
 ```
-🔻Shard2-fsn --- Space Low 20GB Left🔻
+🔻Shard3 Node --- Space Low 20GB Left🔻
 ```
 - <b>If your node has gone into 'Syncing' mode due to a harmony error, it will alert you.</b>
 ```
-🚨!!! shard3-fsn = Syncing !!!🚨
+🚨!!! Shard3 Node = Syncing !!!🚨
 Please check node.
 ```
-- <b>Daily Node Summary Updates</b>
+- <b>Daily Node Summary Updates - These are scheduled twice daily and on command via /nodestats</b>
 ```
-🔶Shard3🔶
+🔶Shard3 Node🔶
 Shard 3: Normal | Synced
 Load: 0.73 | 0.74 | 0.72
 Space: 119G
 Updated: 14 mins ago
 ```
 
-## Data Collected
-- Harmony Utility Metadata
-- Blockchain Height ( Remote + Local )
-- Hostname
-- Server Load
-- Server Space in current filesystem
-
 ## Pre Installation Notes
 - Script must be installed on each individual node
+- Each server must have a unique hostname/servername.
 
 ## Installation 
 
 ### Download the script
-We suggest storing it in your home folder.
-
 ```
-cd ~/
-git clone https://github.com/FortuneV13/harmony_node_stats
-cd harmony_node_stats
+cd ~/ && git clone https://github.com/FortuneV13/harmony_node_stats && cd harmony_node_stats
 ```
-To update use `git pull`
-
 
 ## Automatic Installation:
 ```
