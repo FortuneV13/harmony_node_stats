@@ -55,7 +55,7 @@ Updated: 14 mins ago
 
 ## Installation 
 
-### 1) Download the script
+### Download the script
 We suggest storing it in your home folder.
 
 ```
@@ -65,14 +65,20 @@ cd harmony_node_stats
 ```
 To update use `git pull`
 
-### 2) Get a token
+
+## Automatic Installation:
+```python3 install.py```
+A special thanks to Patrick (Easy Node Validator) for supplying this script to help speed up the installation process. 
+
+## Manual Installation:
+### Get a token
 Send the command `/token` to the @vStatsBot on telegram to get your token.
 
 Copy the token, as message on telegram will auto delete after 60 seconds.
 
 The same token can be used on all your nodes. 
 
-### 3) Setup 
+### Setup 
 Install required packages if missing:
 
 <!-- `sudo apt update && sudo apt upgrade -y` -->
@@ -115,7 +121,7 @@ SHARD_ARRAY = {
 	
 }
 ```
-### 4) Test Script 
+### Test Script 
 Test the config variables and script is working as expected. 
 
 Run the below from the script directory:
