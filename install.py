@@ -69,13 +69,16 @@ def getToken():
     if len(sys.argv) > 1:
         vstatsToken = sys.argv[1]
     else:
-        question = askYesNo(
-            f"* No token found, please run /token on vStats Bot to obtain your token. Would you like to enter one now? (YES/NO)"
+        vstatsToken = input(
+            f"* Please input your vStats token here: "
         )
-        if question:
-            vstatsToken = input(
-                f"* Please input your vStats token here: "
-            )
+        #question = askYesNo(
+        #    f"* No token found, please run /token on vStats Bot to obtain your token. Would you like to enter one now? (YES/NO)"
+        #)
+        #if question:
+        #    vstatsToken = input(
+        #        f"* Please input your vStats token here: "
+        #    )
         else:
             raise SystemExit(0)
     return vstatsToken
