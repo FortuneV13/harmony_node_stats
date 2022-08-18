@@ -70,6 +70,8 @@ To update use `git pull`
 ```
 python3 install.py
 ```
+You will need to obtain a token from vStatsBot using the /token command on the bot. The installation script will ask for this token. 
+
 A special thanks to Patrick (Easy Node Validator) for supplying this script to help speed up the installation process. 
 
 ## Manual Installation:
