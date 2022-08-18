@@ -26,15 +26,17 @@ def updateTextFile(fileName, originalText, newText):
 
 
 def installVstats(vstatsToken) -> None:
+    os.system("sudo service harmony_node_stats stop")
+    os.system(f"sudo rm -r {userHomeDir}/harmony_node_stats")
     # Check if it exists already
-    if os.path.isdir(f"{userHomeDir}/harmony_node_stats"):
-        question = askYesNo("* You already have vstats installed, would you like to update & reinstall vstats? (YES/NO)")
-        if question is False:
-            raise SystemExit(0)
-        else:
-            # Start install by stopping and wipe for re-install if yes
-            os.system("sudo service harmony_node_stats stop")
-            os.system(f"sudo rm -r {userHomeDir}/harmony_node_stats")
+    #if os.path.isdir(f"{userHomeDir}/harmony_node_stats"):
+    #    question = askYesNo("* You already have vstats installed, would you like to update & reinstall vstats? (YES/NO)")
+    #    if question is False:
+    #        raise SystemExit(0)
+    #    else:
+    #        # Start install by stopping and wipe for re-install if yes
+    #        os.system("sudo service harmony_node_stats stop")
+    #        os.system(f"sudo rm -r {userHomeDir}/harmony_node_stats")
         
     # Install it bud, pull git repo
     os.chdir(f"{userHomeDir}")
