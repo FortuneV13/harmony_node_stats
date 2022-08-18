@@ -79,8 +79,8 @@ def getToken():
         #    vstatsToken = input(
         #        f"* Please input your vStats token here: "
         #    )
-        else:
-            raise SystemExit(0)
+        #else:
+        #    raise SystemExit(0)
     return vstatsToken
 
 
