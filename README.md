@@ -67,7 +67,9 @@ To update use `git pull`
 
 
 ## Automatic Installation:
-```python3 install.py```
+```
+python3 install.py
+```
 A special thanks to Patrick (Easy Node Validator) for supplying this script to help speed up the installation process. 
 
 ## Manual Installation:
