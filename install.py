@@ -54,11 +54,11 @@ def installVstats(vstatsToken) -> None:
     # Do service stuff here
     if activeUserName == 'root':
         os.system(
-        f"sudo cp {userHomeDir}/harmony_node_stats/utils/harmony_node_stats.service . && sed -i 's/home\/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sed -i 's/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sudo mv harmony_node_stats.service /etc/systemd/system/harmony_node_stats.service && sudo chmod a-x /etc/systemd/system/harmony_node_stats.service && sudo systemctl enable harmony_node_stats.service && sudo service harmony_node_stats start"
+        f"sudo cp {userHomeDir}/harmony_node_stats/util/harmony_node_stats.service . && sed -i 's/home\/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sed -i 's/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sudo mv harmony_node_stats.service /etc/systemd/system/harmony_node_stats.service && sudo chmod a-x /etc/systemd/system/harmony_node_stats.service && sudo systemctl enable harmony_node_stats.service && sudo service harmony_node_stats start"
     )
     else:
         os.system(
-        f"sudo cp {userHomeDir}/harmony_node_stats/utils/harmony_node_stats.service . && sed -i 's/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sudo mv harmony_node_stats.service /etc/systemd/system/harmony_node_stats.service && sudo chmod a-x /etc/systemd/system/harmony_node_stats.service && sudo systemctl enable harmony_node_stats.service && sudo service harmony_node_stats start"
+        f"sudo cp {userHomeDir}/harmony_node_stats/util/harmony_node_stats.service . && sed -i 's/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sudo mv harmony_node_stats.service /etc/systemd/system/harmony_node_stats.service && sudo chmod a-x /etc/systemd/system/harmony_node_stats.service && sudo systemctl enable harmony_node_stats.service && sudo service harmony_node_stats start"
     )
     return
     
