@@ -50,9 +50,13 @@ def installVstats(vstatsToken) -> None:
     updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", 'VSTATS_TOKEN=""', f'VSTATS_TOKEN="{vstatsToken}"')
     if os.path.isdir(f"{userHomeDir}/harmony"):
         updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", '"harmony_folder":"/home/serviceharmony/harmony"', f'"harmony_folder":"{userHomeDir}/harmony"')
+    elif os.path.isfile(f"{userHomeDir}/harmony"):
+        updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", '"harmony_folder":"/home/serviceharmony/harmony"', f'"harmony_folder":"{userHomeDir}"')
     else:
-        if os.path.isfile(f"{userHomeDir}/harmony"):
-            updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", '"harmony_folder":"/home/serviceharmony/harmony"', f'"harmony_folder":"{userHomeDir}"')
+        print("****")
+        print("Could not locate your Harmony CLI. Use the manual installation")
+        print("****")
+        raise SystemExit(0)
     # Do service stuff here
     if activeUserName == 'root':
         os.system(

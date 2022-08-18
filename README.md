@@ -43,6 +43,7 @@ cd ~/ && git clone https://github.com/FortuneV13/harmony_node_stats && cd harmon
 ```
 
 ## Automatic Installation:
+If you are using custom ports or harmony cli is stored in a folder other than base or harmony folder then please move to 'Manual Installation'
 ```
 python3 install.py
 ```
