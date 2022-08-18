@@ -37,9 +37,7 @@ Updated: 14 mins ago
 - Script must be installed on each individual node
 - Each server must have a unique hostname/servername.
 
-## Installation 
-
-### Download the script
+## Download the script 
 ```
 cd ~/ && git clone https://github.com/FortuneV13/harmony_node_stats && cd harmony_node_stats
 ```
