@@ -37,10 +37,12 @@ Updated: 14 mins ago
 - Script must be installed on each individual node
 - Each server must have a unique hostname/servername.
 
-## Download the script 
-```
-cd ~/ && git clone https://github.com/FortuneV13/harmony_node_stats && cd harmony_node_stats
-```
+## Get a token
+Send the command `/token` to the @vStatsBot on telegram to get your token.
+
+Copy the token, as message on telegram will auto delete after 120 seconds.
+
+The same token can be used on all your nodes. 
 
 ## Automatic Installation:
 If you are using custom ports or harmony cli is stored in a folder other than base or harmony folder then please move to 'Manual Installation'
@@ -54,12 +56,10 @@ Once complete you should get a ping from vStatsBot to know it installed correctl
 A special thanks to Patrick (Easy Node Validator) for supplying this install script to help speed up the installation process. 
 
 ## Manual Installation:
-### Get a token
-Send the command `/token` to the @vStatsBot on telegram to get your token.
-
-Copy the token, as message on telegram will auto delete after 60 seconds.
-
-The same token can be used on all your nodes. 
+### Download the script 
+```
+cd ~/ && git clone https://github.com/FortuneV13/harmony_node_stats && cd harmony_node_stats
+```
 
 ### Setup 
 Install required packages if missing:
