@@ -51,8 +51,6 @@ Enter the below code for a one line installation. For ultimate speed, enter your
 ```
 cd ~/ && wget https://raw.githubusercontent.com/FortuneV13/harmony_node_stats/main/install.py -O install.py && python3 install.py
 ```
-You will be prompted to enter your vStatsBot token. 
-
 Once complete you should get a ping from vStatsBot to know it installed correctly.
 
 A special thanks to Patrick (Easy Node Validator) for supplying this install script to help speed up the installation process. 
