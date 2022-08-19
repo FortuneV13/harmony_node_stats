@@ -45,7 +45,7 @@ Copy the token, as message on telegram will auto delete after 120 seconds.
 The same token can be used on all your nodes. 
 
 ## Automatic Installation:
-If you are using custom ports or harmony cli is stored in a folder other than base or harmony folder then please move to 'Manual Installation'
+If you are using custom ports or harmony cli is stored in a folder other than base or harmony folder then please move to 'Manual Installation'.
 ```
 cd ~/ && wget https://raw.githubusercontent.com/FortuneV13/harmony_node_stats/main/install.py -O install.py && python3 install.py
 ```
