@@ -47,9 +47,9 @@ The same token can be used on all your nodes.
 ## Automatic Installation:
 If you are using custom ports or harmony cli is stored in a folder other than base or harmony folder then please move to 'Manual Installation'.
 
-Enter the below code for a one line installation. For ultimate speed, enter your vStatsBot token at the end of the follow command to save being prompted for it. 
+Enter the below code for a one line installation.
 ```
-cd ~/ && wget https://raw.githubusercontent.com/FortuneV13/harmony_node_stats/main/install.py -O install.py && python3 install.py
+cd ~/ && wget https://raw.githubusercontent.com/FortuneV13/harmony_node_stats/main/install.py -O install.py && python3 install.py && rm install.py
 ```
 You will be prompted to enter your vStatsBot token. 
 
