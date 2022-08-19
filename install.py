@@ -28,16 +28,6 @@ def updateTextFile(fileName, originalText, newText):
 def installVstats(vstatsToken) -> None:
     os.system("sudo service harmony_node_stats stop")
     os.system(f"sudo rm -r {userHomeDir}/harmony_node_stats")
-    # Check if it exists already
-    #if os.path.isdir(f"{userHomeDir}/harmony_node_stats"):
-    #    question = askYesNo("* You already have vstats installed, would you like to update & reinstall vstats? (YES/NO)")
-    #    if question is False:
-    #        raise SystemExit(0)
-    #    else:
-    #        # Start install by stopping and wipe for re-install if yes
-    #        os.system("sudo service harmony_node_stats stop")
-    #        os.system(f"sudo rm -r {userHomeDir}/harmony_node_stats")
-        
     # Install it bud, pull git repo
     os.chdir(f"{userHomeDir}")
     os.system("git clone https://github.com/FortuneV13/harmony_node_stats")
@@ -76,15 +66,6 @@ def getToken():
         vstatsToken = input(
             f"* Please input your vStats token here: "
         )
-        #question = askYesNo(
-        #    f"* No token found, please run /token on vStats Bot to obtain your token. Would you like to enter one now? (YES/NO)"
-        #)
-        #if question:
-        #    vstatsToken = input(
-        #        f"* Please input your vStats token here: "
-        #    )
-        #else:
-        #    raise SystemExit(0)
     return vstatsToken
 
 
@@ -97,7 +78,7 @@ if __name__ == '__main__':
     installVstats(vstatsToken)
 
     # Goodbye!
-    os.system(f"sudo rm {userHomeDir}/install.py")
+    os.system(f"rm -r {userHomeDir}/install.py")
     print("****")
     print("\n*\n* Installer has finished, you should have a ping waiting on vStats if everything was input correctly\n* You can also run `sudo service harmony_node_stats status` to verify your service is online and running!\n*")
     print("****")
