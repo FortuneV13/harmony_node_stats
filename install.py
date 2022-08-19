@@ -78,7 +78,7 @@ if __name__ == '__main__':
     installVstats(vstatsToken)
 
     # Goodbye!
-    os.system(f"rm -r {userHomeDir}/install.py")
+    os.system(f"rm -rf {userHomeDir}/install.py")
     print("****")
     print("\n*\n* Installer has finished, you should have a ping waiting on vStats if everything was input correctly\n* You can also run `sudo service harmony_node_stats status` to verify your service is online and running!\n*")
     print("****")
