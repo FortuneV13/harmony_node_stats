@@ -66,9 +66,6 @@ def installVstats(vstatsToken) -> None:
         os.system(
         f"sudo cp {userHomeDir}/harmony_node_stats/util/harmony_node_stats.service . && sed -i 's/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sudo mv harmony_node_stats.service /etc/systemd/system/harmony_node_stats.service && sudo chmod a-x /etc/systemd/system/harmony_node_stats.service && sudo systemctl enable harmony_node_stats.service && sudo service harmony_node_stats start"
     )
-
-    # tidy up install script
-    os.system(f"rm {userHomeDir}/install.py")
     return
     
 
@@ -100,6 +97,7 @@ if __name__ == '__main__':
     installVstats(vstatsToken)
 
     # Goodbye!
+    os.system(f"rm {userHomeDir}/install.py")
     print("****")
     print("\n*\n* Installer has finished, you should have a ping waiting on vStats if everything was input correctly\n* You can also run `sudo service harmony_node_stats status` to verify your service is online and running!\n*")
     print("****")
