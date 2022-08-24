@@ -20,8 +20,12 @@ def connect_to_api(
 
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
+    
+
     try:
-        r = call(api + endpoint, json=j, headers=headers)
+        # r = call(api + endpoint, json=j, headers=headers)
+        r = requests.get(api + endpoint, headers=headers, json=j, verify=True)
+        
         if r.status_code == 401:
             auth = "Authorisation failed [401] Please check your Token and regenerate a new one if required"
             log.error(auth)
