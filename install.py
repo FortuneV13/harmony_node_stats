@@ -56,6 +56,7 @@ def installVstats(vstatsToken) -> None:
         os.system(
         f"sudo cp {userHomeDir}/harmony_node_stats/util/harmony_node_stats.service . && sed -i 's/serviceharmony/{activeUserName}/g' 'harmony_node_stats.service' && sudo mv harmony_node_stats.service /etc/systemd/system/harmony_node_stats.service && sudo chmod a-x /etc/systemd/system/harmony_node_stats.service && sudo systemctl enable harmony_node_stats.service && sudo service harmony_node_stats start"
     )
+    os.system(f"sudo chmod 644 /etc/systemd/system/harmony_node_stats.service")
     return
     
 
