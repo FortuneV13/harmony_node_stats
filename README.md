@@ -84,7 +84,7 @@ SHARD_ARRAY = {
 	
 	"first-shard":{
 		"harmony_folder":"/home/serviceharmony/harmony",
-		"node_port":9500,
+		"http_port":9500,
 	},
 	
 	# "second-shard":{
