@@ -1,4 +1,6 @@
 # vStatsBot Server Sync Token /token
+VSTATS_API = "https://h.vstats.one/api/node-stats"
+
 VSTATS_TOKEN=""
 
 #Shard Data 

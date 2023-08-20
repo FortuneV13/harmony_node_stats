@@ -1,0 +1,18 @@
+[Unit]
+Description=harmony_node_stats daemon
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=serviceharmony
+WorkingDirectory=/home/serviceharmony/harmony_node_stats
+ExecStart=python3 /home/serviceharmony/harmony_node_stats/main.py
+SyslogIdentifier=harmony_node_stats
+StartLimitInterval=0
+LimitNOFILE=65536
+LimitNPROC=65536
+
+[Install]
+WantedBy=multi-user.target

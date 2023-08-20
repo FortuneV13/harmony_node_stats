@@ -1,10 +1,13 @@
 import sys
 import logging
-import socket
+import os
 
-hostname = socket.gethostname()
-
-from includes.config_utils import *
+def create_data_path(pth: str, data_path: str = "logs") -> os.path:
+    cwd = os.getcwd()
+    p = os.path.join(cwd, data_path, pth)
+    if not os.path.exists(p):
+        os.mkdir(p)
+    return p
 
 create_data_path((""))
 file_handler = logging.FileHandler(filename=os.path.join("logs", "data.log"))
@@ -17,14 +20,3 @@ logging.basicConfig(
     datefmt="%d-%m-%Y %H:%M:%S",
 )
 log = logging.getLogger()
-
-# envs = Envs()
-
-
-VSTATS_API = "https://h.vstats.one/api/node-stats"
-
-alerts_context = dict(
-    # envs=envs,
-    LOOP_COUNT=0,
-    hostname=hostname
-)

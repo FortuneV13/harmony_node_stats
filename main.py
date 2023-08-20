@@ -2,15 +2,11 @@ import subprocess
 import os
 from time import sleep
 from includes.setup import *
-from util.connect import connect_to_api
-from util.tools import *
-from bases.alerts import Alerts
+from api.connection import alerts
+from includes.tools import *
 from subprocess import Popen, PIPE, run,check_output
 from ast import literal_eval
 from config import *
-
-# Init Alerts Class
-alerts = Alerts(VSTATS_API, connect_to_api, **alerts_context)
 
 # Init Count 
 count = 0
@@ -19,7 +15,7 @@ count = 0
 while True:
     # increment count
     count = count + 1
- 
+    
     try:
         # Get Server Load
         try:
@@ -76,9 +72,5 @@ while True:
         log.error(f"Please fix me!")
         alerts.generic_error(e)
         
-
     # Delay by x seconds
-    #sleep(envs.RUN_EVERY_X_MINUTES * 60)
     sleep(30*60)
-    # Hot reload Env
-    # envs.load_envs()
