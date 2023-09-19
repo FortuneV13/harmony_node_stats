@@ -33,38 +33,35 @@ while True:
         if SHARD_ARRAY:
             for shardKey, shardValue in SHARD_ARRAY.items():
                 # Set defaults
-                send_shard_0_remote = None
-                send_shard_0_local = None
-                send_shard_main_remote = None
-                send_shard_main_local = None
+                block_remote = None
+                block_local = None
                 
                 # Get Node utility metadata
                 node_stats = getNodeStats(shardValue)
                 # Get Shard ID from node
                 # shard = shardKey
                 shard = node_stats['shard-id']
-                
+                # Get blocl heights
                 try:
-                    # Shard 0 - Remote
-                    result_shard_0_remote = getSyncRemote(shardValue,f'https://api.s0.t.hmny.io')
-                    send_shard_0_remote =  literal_eval(result_shard_0_remote['shard-chain-header']['number'])
-                    # Shard Main - Remote
-                    if shard > 0:
-                        result_shard_main_remote = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
-                        send_shard_main_remote =  literal_eval(result_shard_main_remote['shard-chain-header']['number'])
-                    # Locals
-                    result_local_shard = getSyncLocal(shardValue)
-                    send_shard_0_local =  literal_eval(result_local_shard['beacon-chain-header']['number'])
-                    if shard > 0:
-                        send_shard_main_local =  literal_eval(result_local_shard['shard-chain-header']['number'])
+                    if(shard == 0):
+                        remote_api_array = getSyncRemote(shardValue,f'https://api.s0.t.hmny.io')
+                        block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
+                        
+                        local_api_array = getSyncLocal(shardValue)
+                        block_local =  literal_eval(local_api_array['beacon-chain-header']['number'])
+                    else:
+                        remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
+                        block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
+
+                        local_api_array = getSyncLocal(shardValue)
+                        block_local =  literal_eval(local_api_array['shard-chain-header']['number'])
+
                 except Exception as e:
-                    send_shard_0_remote = None
-                    send_shard_0_local = None
-                    send_shard_main_remote = None
-                    send_shard_main_local = None
+                    block_remote = None
+                    block_local = None
 
                 # Send to vStats
-                alerts.send_to_vstats(shardKey,node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
+                alerts.send_to_vstats(shardKey,node_stats, block_remote, block_local, load,space,count)
         
         
     except Exception as e:
