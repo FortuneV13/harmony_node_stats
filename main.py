@@ -29,17 +29,14 @@ while True:
         except Exception as e:
             space = None
             
- 
         if SHARD_ARRAY:
             for shardKey, shardValue in SHARD_ARRAY.items():
                 # Set defaults
                 block_remote = None
                 block_local = None
-                
                 # Get Node utility metadata
                 node_stats = getNodeStats(shardValue)
                 # Get Shard ID from node
-                # shard = shardKey
                 shard = node_stats['shard-id']
                 # Get block heights
                 try:
@@ -51,7 +48,7 @@ while True:
                         block_local =  literal_eval(local_api_array['beacon-chain-header']['number'])
                     else:
                         block_local =  literal_eval(local_api_array['shard-chain-header']['number'])
-
+                    
                 except Exception as e:
                     block_remote = None
                     block_local = None
