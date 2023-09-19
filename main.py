@@ -41,19 +41,15 @@ while True:
                 # Get Shard ID from node
                 # shard = shardKey
                 shard = node_stats['shard-id']
-                # Get blocl heights
+                # Get block heights
                 try:
+                    remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
+                    block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
+                    
+                    local_api_array = getSyncLocal(shardValue)
                     if(shard == 0):
-                        remote_api_array = getSyncRemote(shardValue,f'https://api.s0.t.hmny.io')
-                        block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
-                        
-                        local_api_array = getSyncLocal(shardValue)
                         block_local =  literal_eval(local_api_array['beacon-chain-header']['number'])
                     else:
-                        remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
-                        block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
-
-                        local_api_array = getSyncLocal(shardValue)
                         block_local =  literal_eval(local_api_array['shard-chain-header']['number'])
 
                 except Exception as e:
