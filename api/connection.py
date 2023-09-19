@@ -6,8 +6,9 @@ import json
 import requests
 
 class Alerts:
-    def send_to_vstats(self,node_stats: dict,send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str,space:str,count:int) -> None:
+    def send_to_vstats(self,shardKey:str,node_stats: dict,send_shard_0_remote: int,send_shard_0_local: int,send_shard_main_remote: int,send_shard_main_local: int, load: str,space:str,count:int) -> None:
         params = {
+            "array_key": shardKey,
             "send_shard-0-remote": send_shard_0_remote,
             "send_shard-0-local": send_shard_0_local,
             "send_shard-main-remote": send_shard_main_remote,

@@ -64,7 +64,7 @@ while True:
                     send_shard_main_local = None
 
                 # Send to vStats
-                alerts.send_to_vstats(node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
+                alerts.send_to_vstats(shardKey,node_stats, send_shard_0_remote, send_shard_0_local, send_shard_main_remote, send_shard_main_local, load,space,count)
         
         
     except Exception as e:
