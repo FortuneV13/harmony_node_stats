@@ -2,7 +2,6 @@
 
 ## [vStatsBot](https://t.me/vStatsBot) Alerts
 - This is an automated script that will periodically ( every 30 mins ) check your node for errors e.g out of sync and alert you via vStatsBot.
-- Each alert can be turned on and off via /notifications on vStatsBot.
 
 ### Alert Examples:
 
@@ -82,25 +81,10 @@ VSTATS_TOKEN=""
 # Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
 SHARD_ARRAY = {
 	
-	"first-shard":{
+	"Shard-0":{
 		"harmony_folder":"/home/serviceharmony/harmony",
 		"http_port":9500,
 	},
-	
-	# "second-shard":{
-	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9500,
-	# },
-	
-	# "third-shard":{
-	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9500,
-	# },
-	
-    # "forth-shard":{
-	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9500,
-	# },
 	
 }
 ```
