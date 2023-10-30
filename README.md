@@ -1,6 +1,6 @@
 # Harmony Node Stats
 
-## vStatsBot Alerts
+## [vStatsBot](https://t.me/vStatsBot) Alerts
 - This is an automated script that will periodically ( every 30 mins ) check your node for errors e.g out of sync and alert you via vStatsBot.
 - Each alert can be turned on and off via /notifications on vStatsBot.
 
