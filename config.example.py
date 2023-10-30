@@ -11,8 +11,4 @@ SHARD_ARRAY = {
 		"harmony_folder":"/home/serviceharmony/harmony",
 		"http_port":9500,
 	},
-	# "S1":{
-	# 	"harmony_folder":"/home/serviceharmony/harmony",
-	# 	"http_port":9501,
-	# },
 }
