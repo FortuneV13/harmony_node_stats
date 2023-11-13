@@ -39,7 +39,7 @@ def installVstats(vstatsToken) -> None:
     os.system("cp config.example.py config.py")
     updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", 'VSTATS_TOKEN=""', f'VSTATS_TOKEN="{vstatsToken}"')
     new_text = 'SHARD_ARRAY = {\n"S0":{\n"harmony_folder":"/home/serviceharmony/harmony0",\n"http_port":9500,\n},\n"S1":{\n"harmony_folder":"/home/serviceharmony/harmony1",\n"http_port":9511,\n}\n}'
-    updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", 'VSTATS_TOKEN=""', new_text)
+    updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", 'SHARD_ARRAY=""', new_text)
     if os.path.isdir(f"{userHomeDir}/harmony"):
         updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", '"harmony_folder":"/home/serviceharmony/harmony"', f'"harmony_folder":"{userHomeDir}/harmony"')
     elif os.path.isfile(f"{userHomeDir}/harmony"):
