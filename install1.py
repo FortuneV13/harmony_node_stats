@@ -38,9 +38,9 @@ def installVstats(vstatsToken) -> None:
     # customize config file
     os.system("cp config.example.py config.py")
     updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", 'VSTATS_TOKEN=""', f'VSTATS_TOKEN="{vstatsToken}"')
-    old_text = 'SHARD_ARRAY = {\n\t"S0":{\n\t\t"harmony_folder":"/home/serviceharmony/harmony",\n\t\t"http_port":9500,\n\t},\n}'
+    old_text = 'SHARD_ARRAY = {"S0":{"harmony_folder":"/home/serviceharmony/harmony","http_port":9500,},}'
     new_text = 'SHARD_ARRAY = {\n"S0":{\n"harmony_folder":"/home/serviceharmony/harmony0",\n"http_port":9500,\n},\n"S1":{\n"harmony_folder":"/home/serviceharmony/harmony1",\n"http_port":9511,\n}\n}'
-    updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", 'SHARD_ARRAY=""', new_text)
+    updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", old_text, new_text)
     if os.path.isdir(f"{userHomeDir}/harmony"):
         updateTextFile(f"{userHomeDir}/harmony_node_stats/config.py", '"harmony_folder":"/home/serviceharmony/harmony"', f'"harmony_folder":"{userHomeDir}/harmony"')
     elif os.path.isfile(f"{userHomeDir}/harmony"):
