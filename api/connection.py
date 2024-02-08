@@ -6,14 +6,14 @@ import json
 import requests
 
 class Alerts:
-    def send_to_vstats(self,shardKey:str,blskey: dict,peerid:str,sigingMode:str,shard:int,block_remote: int,block_local: int,load: str,space:str,count:int) -> None:
+    def send_to_vstats(self,shardKey:str,blskey: dict,peerid:str,signing_mode:str,shard:int,block_remote: int,block_local: int,load: str,space:str,count:int) -> None:
         params = {
             "array_key": shardKey,
             "block_remote": block_remote,
             "block_local": block_local,
             "blskey": blskey,
             "peerid": peerid,
-            "sigingMode": sigingMode,
+            "signing_mode": signing_mode,
             "shard": shard,
             "load": load,
             "space":space,
