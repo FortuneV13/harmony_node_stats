@@ -36,7 +36,7 @@ while True:
                 block_local = None
                 # Get Node utility metadata
                 node_stats = getNodeStats(shardValue)
-                if node_stats is not None:
+                if node_stats is not None and 'consensus' in node_stats:
                     # Get data from metadata to pass to vstats
                     shard = node_stats['shard-id']
                     blskey = node_stats['blskey']
