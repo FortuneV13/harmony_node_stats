@@ -58,7 +58,7 @@ while True:
                         block_local = None
 
                     # Send to vStats
-                    alerts.send_to_vstats(shardKey,blskey,peerid,sigingMode,shard, block_remote, block_local, load,space,count)
+                    alerts.send_to_vstats(shardKey,blskey,peerid,signing_mode,shard, block_remote, block_local, load,space,count)
         
         
     except Exception as e:
