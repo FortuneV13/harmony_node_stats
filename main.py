@@ -36,25 +36,29 @@ while True:
                 block_local = None
                 # Get Node utility metadata
                 node_stats = getNodeStats(shardValue)
-                # Get Shard ID from node
-                shard = node_stats['shard-id']
-                # Get block heights
-                try:
-                    remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
-                    block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
-                    
-                    local_api_array = getSyncLocal(shardValue)
-                    if(shard == 0):
-                        block_local =  literal_eval(local_api_array['beacon-chain-header']['number'])
-                    else:
-                        block_local =  literal_eval(local_api_array['shard-chain-header']['number'])
-                    
-                except Exception as e:
-                    block_remote = None
-                    block_local = None
+                if node_stats is not None:
+                    # Get data from metadata to pass to vstats
+                    shard = node_stats['shard-id']
+                    blskey = node_stats['blskey']
+                    peerid = node_stats['peerid']
+                    sigingMode = node_stats['consensus']['mode']
+                    # Get block heights
+                    try:
+                        remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
+                        block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
+                        
+                        local_api_array = getSyncLocal(shardValue)
+                        if(shard == 0):
+                            block_local =  literal_eval(local_api_array['beacon-chain-header']['number'])
+                        else:
+                            block_local =  literal_eval(local_api_array['shard-chain-header']['number'])
+                        
+                    except Exception as e:
+                        block_remote = None
+                        block_local = None
 
-                # Send to vStats
-                alerts.send_to_vstats(shardKey,node_stats, block_remote, block_local, load,space,count)
+                    # Send to vStats
+                    alerts.send_to_vstats(shardKey,blskey,peerid,sigingMode,shard, block_remote, block_local, load,space,count)
         
         
     except Exception as e:

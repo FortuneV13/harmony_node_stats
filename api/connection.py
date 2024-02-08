@@ -6,12 +6,15 @@ import json
 import requests
 
 class Alerts:
-    def send_to_vstats(self,shardKey:str,node_stats: dict,block_remote: int,block_local: int,load: str,space:str,count:int) -> None:
+    def send_to_vstats(self,shardKey:str,blskey: dict,peerid:str,sigingMode:str,shard:int,block_remote: int,block_local: int,load: str,space:str,count:int) -> None:
         params = {
             "array_key": shardKey,
             "block_remote": block_remote,
             "block_local": block_local,
-            "node-stats": node_stats,
+            "blskey": blskey,
+            "peerid": peerid,
+            "sigingMode": sigingMode,
+            "shard": shard,
             "load": load,
             "space":space,
             "hostname":socket.gethostname(),
