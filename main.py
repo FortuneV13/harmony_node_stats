@@ -41,7 +41,7 @@ while True:
                     shard = node_stats['shard-id']
                     blskey = node_stats['blskey']
                     peerid = node_stats['peerid']
-                    signing_mode = node_stats['consensus']['mode']
+                    signing_mode = node_stats["consensus"]["mode"]
                     # Get block heights
                     try:
                         remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
