@@ -1,6 +1,3 @@
-NODE_API_URL = "https://api.s0.t.hmny.io"
-# NODE_API_URL = "http://localhost:9500"
-
 # VStats TOKEN
 VSTATS_API = "https://vstats.fortune-validator.pro/api/node-stats"
 VSTATS_TOKEN=""
