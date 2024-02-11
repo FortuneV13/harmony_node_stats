@@ -78,15 +78,7 @@ Edit config.py variables ( now support for multiple shards per server):
 #Add your token from vstats. Run /token on vStatsBot
 VSTATS_TOKEN="" 
 
-# Add path containing .hmy. Run pwd in .hmy location to get full path e.g /home/serviceharmony/harmony 
-SHARD_ARRAY = {
-	
-	"Shard-0":{
-		"harmony_folder":"/home/serviceharmony/harmony",
-		"http_port":9500,
-	},
-	
-}
+# Update NODE_ARRAY in config.py if required. You quite likely wont need to update unless you run a custom setu;
 ```
 ### Test Script 
 Test the config variables and script is working as expected. 
