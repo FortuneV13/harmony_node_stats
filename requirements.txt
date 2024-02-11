@@ -1,3 +1,4 @@
+retry
 python-dotenv
 psutil
 requests

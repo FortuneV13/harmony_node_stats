@@ -1,70 +1,72 @@
-import subprocess
-import os
+from utils import check_service_status, getNodeStats, getSyncRemote, getSyncLocal, get_available_space, post_to_vstats
+from config import NODE_ARRAY
 from time import sleep
-from includes.setup import *
-from api.connection import alerts
-from includes.tools import *
-from subprocess import Popen, PIPE, run,check_output
-from ast import literal_eval
-from config import *
+import os
+import socket
+from logging_util import setup_logging  # Correct import assumed
 
-# Init Count 
+# Setup log
+log = setup_logging()
+hostname = socket.gethostname()
 count = 0
 
-# Keep Looping
 while True:
-    # increment count
-    count = count + 1
+    count += 1  # Increment count
+    log.info('Command Center Loop - Start')
     
-    try:
-        # Get Server Load
-        try:
-            load = os.getloadavg()
-        except Exception as e:
-            load = None
-        
-        try:
-            # Space left
-            space = subprocess.check_output('df -BG --output=avail "$PWD" | tail -n 1', shell=True).decode(sys.stdout.encoding)
-        except Exception as e:
-            space = None
-            
-        if SHARD_ARRAY:
-            for shardKey, shardValue in SHARD_ARRAY.items():
-                # Set defaults
-                block_remote = None
-                block_local = None
-                # Get Node utility metadata
-                node_stats = getNodeStats(shardValue)
-                if node_stats is not None and 'consensus' in node_stats:
-                    # Get data from metadata to pass to vstats
-                    shard = node_stats['shard-id']
-                    blskey = node_stats['blskey']
-                    peerid = node_stats['peerid']
-                    signing_mode = node_stats["consensus"]["mode"]
-                    # Get block heights
-                    try:
-                        remote_api_array = getSyncRemote(shardValue,f'https://api.s{shard}.t.hmny.io')
-                        block_remote =  literal_eval(remote_api_array['shard-chain-header']['number'])
-                        
-                        local_api_array = getSyncLocal(shardValue)
-                        if(shard == 0):
-                            block_local =  literal_eval(local_api_array['beacon-chain-header']['number'])
-                        else:
-                            block_local =  literal_eval(local_api_array['shard-chain-header']['number'])
-                        
-                    except Exception as e:
-                        block_remote = None
-                        block_local = None
+    load = os.getloadavg()  # Returns a tuple
+    space = get_available_space()
 
-                    # Send to vStats
-                    alerts.send_to_vstats(shardKey,blskey,peerid,signing_mode,shard, block_remote, block_local, load,space,count)
-        
-        
-    except Exception as e:
-        log.error(e) 
-        log.error(f"Please fix me!")
-        alerts.generic_error(e)
-        
-    # Delay by x seconds
-    sleep(30*60)
+    for node in NODE_ARRAY:
+        enabled, active = check_service_status(node['service_name'])
+
+        if not enabled or not active:
+            log.error("Harmony Service error")
+            post_to_vstats({
+                "unique_name": NODE_ARRAY.get('unique_name'),
+                "hostname": hostname,
+                "shard": node.get('shard'),
+                "service_name": node.get('service_name'),
+                "service_enabled": enabled,
+                "service_status": active,
+                "load": load,
+                "space": space,
+                "count": count
+            })
+        else:
+            node_stats = getNodeStats(node)
+            if node_stats and 'consensus' in node_stats:
+                try:                    
+                    post_to_vstats({
+                        "unique_name": node.get('unique_name'),
+                        "hostname": hostname,
+                        "shard": node.get('shard'),
+                        "service_name": node.get('service_name'),
+                        "service_enabled": enabled,
+                        "service_status": active,
+                        "load": load,
+                        "space": space,
+                        "signing_mode": node_stats["consensus"]["mode"],
+                        "block_remote": getSyncRemote(node, f'https://api.s{node_stats["shard-id"]}.t.hmny.io'),
+                        "block_local": getSyncLocal(node, node_stats['shard-id']),
+                        "blskey": node_stats.get('blskey'),
+                        "peerid": node_stats.get('peerid'),
+                        "count": count
+                    })
+                except Exception as e:
+                    log.error(f'Problem getting sync data: {e}')
+            else:
+                post_to_vstats({
+                    "unique_name": node.get('unique_name'),
+                    "hostname": hostname,
+                    "shard": node.get('shard'),
+                    "service_name": node.get('service_name'),
+                    "service_enabled": enabled,
+                    "service_status": active,
+                    "load": load,
+                    "space": space,
+                    "count": count
+                })
+
+    log.info('Command Center Loop - End')
+    sleep(60)  # Adjust the sleep time as needed
