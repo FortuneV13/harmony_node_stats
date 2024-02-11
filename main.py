@@ -69,4 +69,4 @@ while True:
                 })
 
     log.info('Command Center Loop - End')
-    sleep(60)  # Adjust the sleep time as needed
+    sleep(60*30)  # Adjust the sleep time as needed
